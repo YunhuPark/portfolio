@@ -25,6 +25,8 @@ body{
   line-height:1.55;
   letter-spacing:-.025em;
   text-rendering:optimizeLegibility;
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 body.menu-open{overflow:hidden}
 a{color:inherit}
@@ -57,10 +59,11 @@ img,svg{max-width:100%;display:block}
   align-items:center;
   justify-content:space-between;
   color:var(--white);
-  mix-blend-mode:difference;
-  pointer-events:none;
+  background:rgba(17,17,15,0.92);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
 }
-.site-header>*{pointer-events:auto}
 .wordmark{
   display:inline-flex;
   align-items:center;
@@ -226,10 +229,10 @@ img,svg{max-width:100%;display:block}
 }
 .work-heading h2,.process-heading h2,.principles-intro h2{
   margin:0;
-  font-size:clamp(52px,7.4vw,116px);
+  font-size:clamp(42px,6vw,86px);
   font-weight:800;
   line-height:.97;
-  letter-spacing:-.075em;
+  letter-spacing:-.06em;
 }
 .work-heading p{
   margin:0 0 8px;
@@ -414,7 +417,7 @@ img,svg{max-width:100%;display:block}
 .case-topline{display:flex;justify-content:space-between;gap:30px;color:var(--muted-dark);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .case-title{align-self:center;margin:60px 0 42px}
 .case-title .case-no{display:block;margin-bottom:22px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.14em}
-.case-title h1{margin:0;max-width:8ch;font-size:clamp(74px,13vw,198px);font-weight:900;line-height:.78;letter-spacing:-.08em}
+.case-title h1{margin:0;max-width:8ch;font-size:clamp(54px,9vw,120px);font-weight:900;line-height:.85;letter-spacing:-.06em}
 .case-title p{margin:34px 0 0;max-width:850px;color:#d7d0c6;font-size:clamp(20px,2.2vw,32px);line-height:1.5}
 .case-hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:24px;border-top:1px solid var(--line-dark)}
 .case-hero-meta div small{display:block;margin-bottom:6px;color:var(--accent);font-size:9px;font-weight:800;letter-spacing:.12em}
@@ -428,7 +431,7 @@ img,svg{max-width:100%;display:block}
   margin-bottom:118px;
 }
 .case-lead .label,.case-section .label{color:var(--accent-deep);font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-.case-lead blockquote{margin:0;max-width:980px;font-size:clamp(38px,5.5vw,82px);font-weight:700;line-height:1.08;letter-spacing:-.06em}
+.case-lead blockquote{margin:0;max-width:980px;font-size:clamp(28px,4vw,52px);font-weight:700;line-height:1.2;letter-spacing:-.04em}
 .case-section{
   display:grid;
   grid-template-columns:minmax(180px,.35fr) minmax(0,1fr);
@@ -437,7 +440,7 @@ img,svg{max-width:100%;display:block}
   border-top:1px solid var(--line-paper);
 }
 .case-section:last-of-type{border-bottom:1px solid var(--line-paper)}
-.case-section h2{margin:0 0 22px;font-size:clamp(34px,4.6vw,68px);line-height:1.05;letter-spacing:-.055em}
+.case-section h2{margin:0 0 22px;font-size:clamp(24px,3.5vw,42px);line-height:1.2;letter-spacing:-.04em}
 .case-section h3{margin:34px 0 12px;font-size:23px;letter-spacing:-.04em}
 .case-section p{margin:0 0 18px;max-width:850px;color:var(--muted-paper);font-size:17px;line-height:1.85}
 .case-section ul{margin:0;padding:0;list-style:none;max-width:880px}
