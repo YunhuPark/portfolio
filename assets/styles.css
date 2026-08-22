@@ -191,7 +191,7 @@ img,svg{max-width:100%;display:block}
   bottom:45px;
   z-index:3;
   display:flex;
-  gap:12px;
+  gap:32px;
   align-items:center;
   color:var(--white);
   font-size:11px;
@@ -202,7 +202,11 @@ img,svg{max-width:100%;display:block}
   transform:rotate(-90deg) translateX(100%);
   transform-origin:right bottom;
 }
-.scroll-cue span:last-child{color:var(--accent);font-size:18px}
+.scroll-cue span:last-child{
+  color:var(--accent);
+  font-size:18px;
+  transform:translateX(-16px);
+}
 
 .section-index{
   display:grid;
