@@ -152,7 +152,7 @@ img,svg{max-width:100%;display:block}
   align-self:center;
   margin:28px 0 18px;
   max-width:12ch;
-  font-size:clamp(90px,18.2vw,276px);
+  font-size:clamp(70px,12vw,180px);
   font-weight:900;
   line-height:.72;
   letter-spacing:-.085em;
@@ -191,7 +191,7 @@ img,svg{max-width:100%;display:block}
   bottom:45px;
   z-index:3;
   display:flex;
-  gap:32px;
+  gap:12px;
   align-items:center;
   color:var(--white);
   font-size:11px;
@@ -577,13 +577,13 @@ img,svg{max-width:100%;display:block}
 .hero-copy{min-width:0;padding:38px 0 54px}
 .hero-name.hero-name-3d{
   margin:0 0 54px;
-  font-size:clamp(88px,13.7vw,220px);
+  font-size:clamp(64px,9.5vw,160px);
   line-height:.76;
-  max-width:8ch;
+  max-width:10ch;
 }
 .hero-statement.hero-statement-3d{
   max-width:780px;
-  font-size:clamp(30px,3.7vw,60px);
+  font-size:clamp(28px,3.7vw,54px);
   line-height:1.14;
 }
 .hero-note.hero-note-3d{margin-top:42px;padding:0}
@@ -704,8 +704,8 @@ img,svg{max-width:100%;display:block}
   .hero.hero-3d{min-height:auto;padding-bottom:72px}
   .hero-3d-layout{grid-template-columns:1fr;gap:26px}
   .hero-copy{padding:44px 0 10px}
-  .hero-name.hero-name-3d{font-size:clamp(92px,25vw,190px);margin-bottom:46px}
-  .hero-statement.hero-statement-3d{font-size:clamp(31px,7vw,54px)}
+  .hero-name.hero-name-3d{font-size:clamp(76px,20vw,160px);margin-bottom:46px}
+  .hero-statement.hero-statement-3d{font-size:clamp(28px,7vw,50px)}
   .hero-note.hero-note-3d{display:block;margin-top:34px}
   .hero-scene-shell{min-height:560px;max-width:720px;margin:0 auto}
   .scene-canvas-wrap{min-height:450px}
