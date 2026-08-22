@@ -4,7 +4,7 @@ AI 모델과 LLM을 검증·보안·배포 가능한 시스템으로 구현하�
 
 ## Live
 
-> **배포 URL은 Vercel Production 확정 후 업데이트합니다.**
+[park-yunhu-portfolio.vercel.app](https://park-yunhu-portfolio.vercel.app/)
 
 ## Tech
 
