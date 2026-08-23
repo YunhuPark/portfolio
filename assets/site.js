@@ -89,29 +89,85 @@
 (function initLightbox() {
   const overlay = document.createElement('div');
   overlay.className = 'lightbox-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', '이미지 확대 보기');
   overlay.innerHTML = `
-    <button class="lightbox-close" aria-label="�ݱ�">��</button>
-    <img class="lightbox-img" src="" alt="Ȯ��� �̹���">
+    <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+    <img class="lightbox-img" src="" alt="확대된 이미지">
   `;
   document.body.appendChild(overlay);
 
   const imgEl = overlay.querySelector('.lightbox-img');
   const closeBtn = overlay.querySelector('.lightbox-close');
+  let lastFocusedElement = null;
 
-  function openLightbox(src, alt) {
-    imgEl.src = src;
-    imgEl.alt = alt || 'Ȯ��� �̹���';
+  function openLightbox(triggerEl) {
+    lastFocusedElement = triggerEl;
+    imgEl.src = triggerEl.src;
+    imgEl.alt = triggerEl.alt || '확대된 이미지';
     overlay.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    
+    setTimeout(() => {
+      closeBtn.focus();
+    }, 50);
   }
 
   function closeLightbox() {
     overlay.classList.remove('is-active');
-    setTimeout(() => { imgEl.src = ''; }, 300);
+    document.body.style.overflow = '';
+    
+    setTimeout(() => { 
+      imgEl.src = ''; 
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+        lastFocusedElement = null;
+      }
+    }, 300);
   }
+
+  // Set tabindex and role dynamically if missing
+  function setupKeyboardAccess() {
+    document.querySelectorAll('.zoomable-image').forEach(img => {
+      if (!img.hasAttribute('tabindex')) {
+        img.setAttribute('tabindex', '0');
+      }
+      if (!img.hasAttribute('role')) {
+        img.setAttribute('role', 'button');
+      }
+      const altText = img.alt ? img.alt + ' 확대 보기' : '이미지 확대 보기';
+      if (!img.hasAttribute('aria-label') || img.getAttribute('aria-label') === '이미지 확대 보기') {
+        img.setAttribute('aria-label', altText);
+      }
+    });
+  }
+
+  // Run once immediately and maybe re-run if DOM changes
+  setupKeyboardAccess();
+  
+  // Create a MutationObserver to handle dynamically added images
+  const observer = new MutationObserver((mutations) => {
+    let shouldUpdate = false;
+    mutations.forEach(m => {
+      if (m.addedNodes.length) shouldUpdate = true;
+    });
+    if (shouldUpdate) setupKeyboardAccess();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('zoomable-image')) {
-      openLightbox(e.target.src, e.target.alt);
+      openLightbox(e.target);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.classList.contains('zoomable-image')) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(e.target);
+      }
     }
   });
 
@@ -127,4 +183,3 @@
     }
   });
 })();
-
