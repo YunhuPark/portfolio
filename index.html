@@ -16,12 +16,12 @@
   <link rel="canonical" href="https://park-yunhu-portfolio.vercel.app/">
   <title>박윤후 | AI Engineer Portfolio</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=8">
-  <link rel="stylesheet" href="assets/refinements.css?v=8">
-  <script defer src="assets/spline-config.js?v=8"></script>
-  <script defer src="assets/reliability-core.js?v=8"></script>
-  <script defer src="assets/site.js?v=8"></script>
-  <script defer src="assets/spline-loader.js?v=8"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=9">
+  <link rel="stylesheet" href="assets/refinements.css?v=9">
+  <script defer src="assets/spline-config.js?v=9"></script>
+  <script defer src="assets/reliability-core.js?v=9"></script>
+  <script defer src="assets/site.js?v=9"></script>
+  <script defer src="assets/spline-loader.js?v=9"></script>
 </head>
 
 <body>
@@ -152,15 +152,16 @@
             <span data-preview-number>01 / 03</span>
           </div>
 
-          <figure class="project-proof">
-            <div class="project-proof-frame">
-              <img data-preview-image src="https://raw.githubusercontent.com/YunhuPark/algo-site/main/public/dashboard/main.png" alt="Algo Pipeline 운영 대시보드 실제 화면">
+          <div class="work-scene-wrap">
+            <canvas id="work-core" class="scene-canvas work-scene-canvas" aria-label="선택한 프로젝트를 추상화한 3D 시각화"></canvas>
+            <div class="work-scene-fallback" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
             </div>
-            <figcaption>
-              <span data-preview-caption>ALGO DASHBOARD / ACTUAL PROJECT UI</span>
-              <a data-preview-link href="https://algo-site-hazel.vercel.app" target="_blank" rel="noopener noreferrer">Open live evidence ↗</a>
-            </figcaption>
-          </figure>
+            <div class="work-scene-title">
+              <small data-scene-label>VERIFY / OPERATE</small>
+              <strong data-scene-title>ALGO PIPELINE</strong>
+            </div>
+          </div>
 
           <div class="preview-footer">
             <div>
@@ -169,7 +170,7 @@
             </div>
             <div>
               <small>EVIDENCE</small>
-              <p data-preview-evidence>104 tests · Quality Gate · DB isolation</p>
+              <p data-preview-evidence>104 tests · unsupported numeric claim blocked · DB isolation · dry-run</p>
             </div>
           </div>
         </aside>
