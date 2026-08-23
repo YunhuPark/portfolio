@@ -3,20 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="IMST-Mamba case study — 결측 패턴 기반 조기 패혈증 예측 연구">
+  <meta name="description" content="IMST-Mamba research note — ICU 결측 패턴을 never·recent·stale 상태로 모델링한 조기 패혈증 예측 연구">
   <meta name="theme-color" content="#11110f">
+  <meta property="og:title" content="IMST-Mamba — Park Yunhu">
+  <meta property="og:description" content="결측 자체를 정보로 모델링하고 전체·장기입원 하위집단·Ablation으로 검증한 time-series ML research note.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://park-yunhu-portfolio.vercel.app/project-imst-mamba">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://park-yunhu-portfolio.vercel.app/project-imst-mamba">
   <title>IMST-Mamba — Park Yunhu</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css">
-  <script defer src="assets/site.js"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=8">
+  <link rel="stylesheet" href="assets/refinements.css?v=8">
+  <script defer src="assets/site.js?v=8"></script>
 </head>
 <body class="case-body">
   <a class="skip-link" href="#case-main">본문으로 이동</a>
   <header class="site-header">
-    <a class="wordmark" href="index.html"><span>PY</span><i>/</i><span>26</span></a>
+    <a class="wordmark" href="/"><span>PY</span><i>/</i><span>26</span></a>
     <nav class="site-nav" aria-label="사례 탐색">
-      <a href="index.html#research">← Research &amp; additional</a>
-      <a href="https://github.com/YunhuPark/IMST-Mamba" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="/#research">← Research &amp; additional</a>
+      <a href="https://github.com/YunhuPark/IMST-Mamba" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </nav>
     <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
   </header>
@@ -60,7 +67,7 @@
             <li><strong>Recent</strong> — 최근에 관측되어 비교적 신선한 변수</li>
             <li><strong>Stale</strong> — 마지막 관측 이후 시간이 오래 지난 변수</li>
           </ul>
-          <p>값, 관측 마스크, staleness, inter-event time을 함께 입력하고, temporal decay와 selective state-space block을 결합했습니다.</p>
+          <p>값, 관측 마스크, staleness, inter-event time을 함께 입력하고 temporal decay와 selective state-space block을 결합했습니다.</p>
         </div>
       </section>
 
@@ -87,30 +94,33 @@
         <div>
           <h2>모델 연구와 시스템 통합을 서로 다른 관점으로 설명합니다.</h2>
           <p>이 페이지는 결측 상태 정의, 모델 구조, Baseline 비교와 Ablation처럼 <strong>모델 자체의 연구 질문</strong>을 다룹니다. Medi-Matrix는 같은 시계열 아이디어를 3D 영상·인증·스토리지·WebSocket과 연결하며 <strong>시스템 통합 질문</strong>을 다룹니다.</p>
-          <div class="case-note"><strong>중복이 아닌 역할 분리.</strong> IMST-Mamba는 독립 연구 결과이고 Medi-Matrix는 이를 활용하는 멀티모달 시스템 프로토타입입니다. 단, 현재 공개 Medi-Matrix의 시계열 결과는 실제 학습 모델 추론이 아니라 Demo/실험적 모듈입니다.</div>
-          <div class="case-links"><a class="text-link" href="project-medi-matrix.html">Medi-Matrix system case study ↗</a></div>
+          <div class="case-note"><strong>중복이 아닌 역할 분리.</strong> IMST-Mamba는 독립 연구 결과이고 Medi-Matrix는 시계열 추론 아이디어를 멀티모달 시스템 경계에 연결한 프로토타입입니다. 공개 Medi-Matrix의 시계열 결과는 실제 학습 모델 추론이 아닌 Demo/실험적 모듈입니다.</div>
+          <div class="case-links"><a class="text-link" href="/project-medi-matrix">Medi-Matrix system case study ↗</a></div>
         </div>
       </section>
 
       <section class="case-section">
         <span class="label">Evaluation</span>
         <div>
-          <h2>전체 평균과 하위집단 성능을 구분했습니다.</h2>
-          <div class="case-metrics">
-            <div class="case-metric"><strong>0.7791</strong><small>IMST-Mamba overall AUROC</small></div>
-            <div class="case-metric"><strong>0.8514</strong><small>Long-stay subgroup AUROC</small></div>
-            <div class="case-metric"><strong>−0.121</strong><small>Staleness 제거 시 AUROC 변화</small></div>
-            <div class="case-metric"><strong>44.7h</strong><small>Mean Early Warning Time</small></div>
+          <h2>전체 평균과 하위집단 성능을 함께 비교했습니다.</h2>
+          <div class="case-comparison">
+            <article><small>Overall / Transformer</small><strong>0.8517</strong><p>전체 AUROC에서는 Transformer가 더 높았습니다.</p></article>
+            <article><small>Overall / IMST-Mamba</small><strong>0.7791</strong><p>전체 성능 우위를 주장하지 않습니다.</p></article>
+            <article><small>Long-stay / Transformer</small><strong>0.8122</strong><p>장기 입원 하위집단 baseline.</p></article>
+            <article><small>Long-stay / IMST-Mamba</small><strong>0.8514</strong><p>복잡한 결측 패턴이 있는 하위집단에서 더 높은 결과를 보였습니다.</p></article>
           </div>
-          <p>전체 집단에서는 Transformer가 더 높은 AUROC를 기록했지만, 장기 입원 환자 하위집단에서는 IMST-Mamba가 더 높은 결과를 보였습니다. 이를 전체 모델 우위로 과장하지 않고, 복잡한 결측 패턴이 있는 집단에서의 가능성으로 제한했습니다.</p>
+          <p>전체 집단에서는 Transformer가 더 높은 AUROC를 기록했지만 장기 입원 환자 하위집단에서는 IMST-Mamba가 더 높았습니다. 이를 보편적인 모델 우위로 과장하지 않고 특정 결측 패턴을 가진 집단에서의 가능성으로 제한했습니다.</p>
         </div>
       </section>
 
       <section class="case-section">
         <span class="label">Ablation</span>
         <div>
-          <h2>어떤 입력이 실제로 기여했는지 확인했습니다.</h2>
-          <p>Staleness 신호를 제거했을 때 AUROC가 0.121 감소해, 단순 binary mask보다 마지막 관측 이후 경과 시간이 더 중요한 정보일 가능성을 확인했습니다.</p>
+          <h2>Staleness 신호가 실제로 기여하는지 확인했습니다.</h2>
+          <div class="case-metrics">
+            <div class="case-metric"><strong>−0.121</strong><small>Staleness 제거 시 AUROC 변화</small></div>
+          </div>
+          <p>Staleness 신호를 제거했을 때 AUROC가 0.121 감소해 단순 binary mask보다 마지막 관측 이후 경과 시간이 중요한 정보일 가능성을 확인했습니다.</p>
         </div>
       </section>
 
@@ -118,8 +128,7 @@
         <span class="label">Limits</span>
         <div>
           <h2>외부 검증 없이 임상적 우위를 주장하지 않았습니다.</h2>
-          <p>단일 공개 데이터셋 기반 결과이며, 외부 병원 데이터 검증, calibration, prospective workflow 평가가 필요합니다. 모델 성능 수치만으로 임상적 유용성을 주장할 수 없음을 명시했습니다.</p>
-          <div class="case-note">저장소의 연구·제출 상태 표기는 실제 진행 상황과 일치하도록 최종 제출 전 다시 확인해야 합니다.</div>
+          <p>단일 공개 데이터셋 기반 Research Prototype이며 외부 병원 데이터 검증, calibration, prospective workflow 평가가 후속 과제입니다. 모델 성능 수치만으로 임상적 유용성을 주장할 수 없음을 명시합니다.</p>
         </div>
       </section>
 
@@ -128,14 +137,12 @@
         <div>
           <h2>평균 점수보다 어떤 환자에게 도움이 되는지가 중요했습니다.</h2>
           <p>의료 AI에서는 전체 AUROC 하나보다 하위집단, 조기경보 시간, calibration과 ablation을 함께 봐야 모델이 실제로 어떤 조건에서 가치를 만드는지 설명할 수 있다는 점을 배웠습니다.</p>
-          <div class="case-links">
-            <a class="text-link" href="https://github.com/YunhuPark/IMST-Mamba" target="_blank" rel="noreferrer">GitHub repository ↗</a>
-          </div>
+          <div class="case-links"><a class="text-link" href="https://github.com/YunhuPark/IMST-Mamba" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div>
         </div>
       </section>
     </section>
 
-    <a class="next-project" href="index.html#research">
+    <a class="next-project" href="/#research">
       <small>BACK TO</small>
       <strong>RESEARCH &amp; ADDITIONAL WORK</strong>
       <span>↗</span>
