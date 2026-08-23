@@ -188,10 +188,10 @@ img,svg{max-width:100%;display:block}
 .scroll-cue{
   position:absolute;
   right:var(--pad);
-  bottom:45px;
+  bottom:130px;
   z-index:3;
   display:flex;
-  gap:32px;
+  gap:12px;
   align-items:center;
   color:var(--white);
   font-size:11px;
@@ -199,13 +199,12 @@ img,svg{max-width:100%;display:block}
   letter-spacing:.12em;
   text-transform:uppercase;
   text-decoration:none;
-  transform:rotate(-90deg) translateX(100%);
-  transform-origin:right bottom;
+  transform:rotate(-90deg);
+  transform-origin:right center;
 }
 .scroll-cue span:last-child{
   color:var(--accent);
   font-size:18px;
-  transform:translateX(-20px);
 }
 
 .section-index{
