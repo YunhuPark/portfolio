@@ -18,6 +18,36 @@
 .handoff-detail { margin-top:28px; padding-top:24px; border-top:1px solid var(--line-paper); }
 .handoff-detail h3 { margin-top:0; }
 
+/* Selected research/additional rows: keep every description on one shared vertical axis. */
+@media(min-width:1181px) {
+  .additional-list a {
+    grid-template-columns: 330px minmax(0,1fr) 150px;
+    column-gap:48px;
+    align-items:center;
+  }
+  .additional-list small {
+    display:block;
+    margin:0;
+    justify-self:stretch;
+  }
+  .additional-list b {
+    justify-self:end;
+    text-align:right;
+    white-space:nowrap;
+  }
+}
+
+@media(min-width:821px) and (max-width:1180px) {
+  .additional-list a {
+    grid-template-columns: 250px minmax(0,1fr) 140px;
+    column-gap:28px;
+  }
+  .additional-list b {
+    justify-self:end;
+    text-align:right;
+  }
+}
+
 /* Give both connector columns enough room and align their labels identically. */
 @media(min-width:1181px) {
   .ecosystem-flow { grid-template-columns:minmax(0,1fr) 112px minmax(0,1fr) 112px minmax(0,1fr); gap:14px; }
