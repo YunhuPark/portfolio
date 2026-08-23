@@ -13,9 +13,9 @@
   <link rel="canonical" href="https://park-yunhu-portfolio.vercel.app/project-medi-matrix">
   <title>Medi-Matrix — Park Yunhu</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=8">
-  <link rel="stylesheet" href="assets/refinements.css?v=10">
-  <script defer src="assets/site.js?v=8"></script>
+  <link rel="stylesheet" href="assets/styles.css?v=11">
+  <link rel="stylesheet" href="assets/refinements.css?v=11">
+  <script defer src="assets/site.js?v=11"></script>
 </head>
 <body class="case-body">
   <a class="skip-link" href="#case-main">본문으로 이동</a>
@@ -43,7 +43,7 @@
           <h2>합성 의료영상을 실제 3D Viewer에서 확인합니다.</h2>
           <p>합성 NIfTI 입력을 검증한 뒤 Mesh로 변환해 브라우저에서 시각화합니다. 아래 화면은 공개 데모에서 1단계 의료영상 업로드가 완료된 실제 상태입니다.</p>
           <figure class="case-shot case-shot-hero">
-            <img src="assets/medi/medi-viewer-3d.avif" width="960" height="512" alt="Medi-Matrix 합성 의료영상이 3D Viewer에서 렌더링된 실제 데모 화면" fetchpriority="high" decoding="async">
+            <img src="assets/medi/medi-viewer-3d.png" class="zoomable-image" alt="Medi-Matrix 합성 의료영상이 3D Viewer에서 렌더링된 실제 데모 화면" fetchpriority="high" decoding="async">
             <figcaption><span>01 / SYNTHETIC MEDICAL IMAGE → 3D VISUALIZATION</span><a href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Open live demo ↗</a></figcaption>
           </figure>
         </div>
@@ -61,11 +61,11 @@
           <div class="demo-flow-rail" aria-label="Image to Vitals to Monitor flow"><span>IMAGE</span><i></i><span>VITALS</span><i></i><span>MONITOR</span></div>
           <div class="demo-evidence-grid">
             <figure class="case-shot">
-              <img src="assets/medi/medi-vitals-upload.avif" width="960" height="512" loading="lazy" decoding="async" alt="Medi-Matrix에서 3D 의료영상과 Vitals 업로드가 완료된 실제 화면">
+              <img src="assets/medi/medi-vitals-upload.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix에서 3D 의료영상과 Vitals 업로드가 완료된 실제 화면">
               <figcaption><span>02 / IMAGE + VITALS → MULTI-MODAL INPUT</span></figcaption>
             </figure>
             <figure class="case-shot">
-              <img src="assets/medi/medi-monitoring.avif" width="960" height="512" loading="lazy" decoding="async" alt="Medi-Matrix에서 HR, BP, Resp, Temp, SpO2와 데모 위험 점수를 실시간 모니터링하는 실제 화면">
+              <img src="assets/medi/medi-monitoring.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix에서 HR, BP, Resp, Temp, SpO2와 데모 위험 점수를 실시간 모니터링하는 실제 화면">
               <figcaption><span>03 / VITALS REPLAY → LIVE MONITORING</span></figcaption>
             </figure>
           </div>
@@ -78,7 +78,7 @@
           <h2>위험 점수를 명시적인 Triage 상태로 변환합니다.</h2>
           <p>합성 데이터 기반 위험 점수는 진단명이 아니라 데모용 의사결정 입력입니다. 포트폴리오에서는 최종 RED 상태와 위험 점수가 동시에 확인되는 화면을 사용해 모델 출력과 행동 상태의 경계를 보여줍니다.</p>
           <figure class="case-shot">
-            <img src="assets/medi/medi-red-triage.jpg" width="900" height="480" loading="lazy" decoding="async" alt="Medi-Matrix에서 RED 응급도 분류와 Golden-Time 연결 버튼이 표시된 실제 데모 화면">
+            <img src="assets/medi/medi-red-triage.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix에서 RED 응급도 분류와 Golden-Time 연결 버튼이 표시된 실제 데모 화면">
             <figcaption><span>04 / DEMO RISK SCORES → EXPLICIT RED TRIAGE STATE</span><strong>DEMO · NOT CLINICAL DIAGNOSIS</strong></figcaption>
           </figure>
         </div>
@@ -101,7 +101,7 @@
           <h2>RED Triage를 병원 탐색 컨텍스트로 연결합니다.</h2>
           <p>RED 분류와 Golden-Time 연결이 함께 확인되는 CODE RED 모달을 실제 데모 증거 화면으로 사용했습니다.</p>
           <figure class="case-shot">
-            <img src="assets/medi/medi-code-red-handoff.avif" width="960" height="512" loading="lazy" decoding="async" alt="Medi-Matrix CODE RED 모달에서 RED 분류와 Golden-Time 병원 탐색 연결이 함께 표시된 실제 데모 화면">
+            <img src="assets/medi/medi-code-red-handoff.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix CODE RED 모달에서 RED 분류와 Golden-Time 병원 탐색 연결이 함께 표시된 실제 데모 화면">
             <figcaption><span>05 / TRIAGE CONTEXT → GOLDEN-TIME HOSPITAL SEARCH</span><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Open Golden-Time ↗</a></figcaption>
           </figure>
           <div class="handoff-boundary">

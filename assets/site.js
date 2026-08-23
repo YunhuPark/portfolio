@@ -84,3 +84,47 @@
 
   if (rows.length) activateProject(rows[0].dataset.project || 'algo');
 })();
+
+// Lightbox Implementation
+(function initLightbox() {
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="닫기">×</button>
+    <img class="lightbox-img" src="" alt="확대된 이미지">
+  `;
+  document.body.appendChild(overlay);
+
+  const imgEl = overlay.querySelector('.lightbox-img');
+  const closeBtn = overlay.querySelector('.lightbox-close');
+
+  function openLightbox(src, alt) {
+    imgEl.src = src;
+    imgEl.alt = alt || '확대된 이미지';
+    overlay.classList.add('is-active');
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('is-active');
+    setTimeout(() => { imgEl.src = ''; }, 300);
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('zoomable-image')) {
+      openLightbox(e.target.src, e.target.alt);
+    }
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target === closeBtn) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-active')) {
+      closeLightbox();
+    }
+  });
+})();
+
