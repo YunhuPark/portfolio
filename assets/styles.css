@@ -187,9 +187,9 @@ img,svg{max-width:100%;display:block}
 .hero-note p{margin:4px 0;color:var(--muted-dark);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .scroll-cue{
   position:absolute;
-  right:var(--pad);
+  right:20px;
   bottom:130px;
-  z-index:3;
+  z-index:10;
   display:flex;
   gap:12px;
   align-items:center;
