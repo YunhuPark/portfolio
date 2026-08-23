@@ -1579,11 +1579,12 @@ svg {
   padding: 38px 0 54px
 }
 
-.hero-name.hero-name-3d {
-  margin: 0 0 54px;
-  font-size: clamp(64px, 9.5vw, 160px);
-  line-height: .76;
-  max-width: 10ch;
+.hero-name.hero-name-3d{
+  margin:0 0 54px;
+  font-size:clamp(64px,9.5vw,160px);
+  line-height:.76;
+  max-width:10ch;
+  text-indent:-0.05em; /* Optical alignment for P vs Y */
 }
 
 .hero-statement.hero-statement-3d {
