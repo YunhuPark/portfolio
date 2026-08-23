@@ -3,70 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Medi-Matrix case study — 3D 의료영상, ICU Vitals, 인증·Private Storage·Signed URL과 Golden-Time context handoff를 결합한 멀티모달 의료 AI 프로토타입">
+  <meta name="description" content="Medi-Matrix case study ??3D ?�료?�상, ICU Vitals, ?�증·Private Storage·Signed URL�?Golden-Time context handoff�?결합??멀?�모???�료 AI ?�로?��???>
   <meta name="theme-color" content="#11110f">
-  <meta property="og:title" content="Medi-Matrix — Park Yunhu">
-  <meta property="og:description" content="3D 의료영상과 ICU Vitals를 안전한 입력·인증·스토리지 경계 안에서 연결한 Medical AI system case study.">
+  <meta property="og:title" content="Medi-Matrix ??Park Yunhu">
+  <meta property="og:description" content="3D ?�료?�상�?ICU Vitals�??�전???�력·?�증·?�토리�? 경계 ?�에???�결??Medical AI system case study.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://park-yunhu-portfolio.vercel.app/project-medi-matrix">
   <meta name="twitter:card" content="summary">
   <link rel="canonical" href="https://park-yunhu-portfolio.vercel.app/project-medi-matrix">
-  <title>Medi-Matrix — Park Yunhu</title>
+  <title>Medi-Matrix ??Park Yunhu</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css?v=12">
   <link rel="stylesheet" href="assets/refinements.css?v=12">
   <script defer src="assets/site.js?v=12"></script>
 </head>
 <body class="case-body">
-  <a class="skip-link" href="#case-main">본문으로 이동</a>
+  <a class="skip-link" href="#case-main">본문?�로 ?�동</a>
   <header class="site-header">
     <a class="wordmark" href="/"><span>PY</span><i>/</i><span>26</span></a>
-    <nav class="site-nav" aria-label="사례 탐색">
-      <a href="/#work">← Selected work</a>
-      <a href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
-      <a href="https://github.com/YunhuPark/Medi-Matrix" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <nav class="site-nav" aria-label="?��? ?�색">
+      <a href="/#work">??Selected work</a>
+      <a href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo ??/a>
+      <a href="https://github.com/YunhuPark/Medi-Matrix" target="_blank" rel="noopener noreferrer">GitHub ??/a>
     </nav>
     <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
   </header>
   <main id="case-main">
     <section class="case-hero">
       <div class="case-topline"><span>CASE STUDY / 02</span><span>MEDICAL AI · SECURITY</span></div>
-      <div class="case-title"><span class="case-no">02 — DEMO / SYNTHETIC DATA</span><h1>MEDI-<br>MATRIX</h1><p>3D 의료영상과 ICU 생체신호를 결합하면서, 파일 입력 검증·인증·사용자 데이터 격리와 후속 행동 지원까지 함께 설계한 의료 AI 프로토타입입니다.</p></div>
+      <div class="case-title"><span class="case-no">02 ??DEMO / SYNTHETIC DATA</span><h1>MEDI-<br>MATRIX</h1><p>3D ?�료?�상�?ICU ?�체?�호�?결합?�면?? ?�일 ?�력 검증·인증·사?�자 ?�이??격리?� ?�속 ?�동 지?�까지 ?�께 ?�계???�료 AI ?�로?��??�입?�다.</p></div>
       <div class="case-hero-meta"><div><small>TYPE</small><span>Personal Prototype</span></div><div><small>ROLE</small><span>Architecture · Backend · Security</span></div><div><small>STATUS</small><span>Demo inference / Synthetic data</span></div><div><small>STACK</small><span>FastAPI · React · Three.js · Supabase</span></div></div>
     </section>
     <section class="case-content">
-      <div class="case-lead"><span class="label">Core question</span><blockquote>의료 AI 데모를 만들 때, 모델보다 먼저 지켜야 할 데이터 경계는 무엇인가?</blockquote></div>
+      <div class="case-lead"><span class="label">Core question</span><blockquote>?�료 AI ?�모�?만들 ?? 모델보다 먼�? 지켜야 ???�이??경계??무엇?��??</blockquote></div>
 
       <section class="case-section live-evidence-section">
         <span class="label">Live Demo / 01</span>
         <div>
-          <h2>합성 의료영상을 실제 3D Viewer에서 확인합니다.</h2>
-          <p>합성 NIfTI 입력을 검증한 뒤 Mesh로 변환해 브라우저에서 시각화합니다. 아래 화면은 공개 데모에서 1단계 의료영상 업로드가 완료된 실제 상태입니다.</p>
+          <h2>?�성 ?�료?�상???�제 3D Viewer?�서 ?�인?�니??</h2>
+          <p>?�성 NIfTI ?�력??검증한 ??Mesh�?변?�해 브라?��??�서 ?�각?�합?�다. ?�래 ?�면?� 공개 ?�모?�서 1?�계 ?�료?�상 ?�로?��? ?�료???�제 ?�태?�니??</p>
           <figure class="case-shot case-shot-hero">
-            <img src="assets/medi/medi-viewer-3d.png" class="zoomable-image" alt="Medi-Matrix 합성 의료영상이 3D Viewer에서 렌더링된 실제 데모 화면" fetchpriority="high" decoding="async">
-            <figcaption><span>01 / SYNTHETIC MEDICAL IMAGE → 3D VISUALIZATION</span><a href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Open live demo ↗</a></figcaption>
+            <img src="assets/medi/medi-viewer-3d.png?v=2" class="zoomable-image" alt="Medi-Matrix ?�성 ?�료?�상??3D Viewer?�서 ?�더링된 ?�제 ?�모 ?�면" fetchpriority="high" decoding="async">
+            <figcaption><span>01 / SYNTHETIC MEDICAL IMAGE ??3D VISUALIZATION</span><a href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Open live demo ??/a></figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="case-section"><span class="label">Problem</span><div><h2>의료 파일은 일반 이미지처럼 다룰 수 없습니다.</h2><p>NIfTI와 NumPy 의료영상은 다차원 배열이므로 파일 형식, 차원, 값 범위와 크기를 잘못 처리하면 서버 자원과 보안에 영향을 줄 수 있습니다. 초기 코드의 비밀값 관리, 위험한 pickle 로딩, 입력값 검증 부족과 문서·구현 불일치를 운영 경계 관점에서 다시 정리했습니다.</p></div></section>
-      <section class="case-section"><span class="label">My role</span><div><h2>모델 데모와 운영 경계를 분리했습니다.</h2><ul><li>NIfTI·NumPy 파싱과 GLB Mesh 변환 흐름 정리</li><li>파일 크기·dtype·차원·NaN/Inf 검증과 임시파일 정리</li><li>JWT 인증, Private Storage와 사용자별 경로 격리 설계</li><li>Vitals WebSocket replay와 Demo/Model inference mode 분리</li><li>Golden-Time으로 민감정보 없이 합성 데모 분석 컨텍스트를 전달하는 browser handoff 구현</li></ul></div></section>
-      <section class="case-section"><span class="label">Decision</span><div><h2>업로드 파일과 공개 URL을 신뢰하지 않았습니다.</h2><h3>Safe parsing</h3><p><code>allow_pickle=False</code>를 적용하고 object dtype, 비정상 차원, NaN·Inf 및 과도한 파일 크기를 차단했습니다.</p><h3>Private storage</h3><p>생성된 Mesh와 Vitals 파일을 사용자 경로로 격리하고, 인증된 사용자에게만 만료형 Signed URL을 발급하도록 설계했습니다.</p><h3>Explicit inference boundary</h3><p>공개 배포는 합성 데이터 기반 Demo Inference로 두고, 실제 모델 추론은 별도 의존성과 자원 조건을 요구하도록 분리했습니다.</p><h3>Minimal context handoff</h3><p>후속 병원 탐색에는 응급도·모달리티·병변 규모·필요 진료 역량 같은 데모 컨텍스트만 전달하고 JWT, patientId, meshId, Signed URL과 토큰은 URL에서 제외했습니다.</p></div></section>
+      <section class="case-section"><span class="label">Problem</span><div><h2>?�료 ?�일?� ?�반 ?��?지처럼 ?�룰 ???�습?�다.</h2><p>NIfTI?� NumPy ?�료?�상?� ?�차??배열?��?�??�일 ?�식, 차원, �?범위?� ?�기�??�못 처리?�면 ?�버 ?�원�?보안???�향??�????�습?�다. 초기 코드??비�?�?관�? ?�험??pickle 로딩, ?�력�?검�?부족과 문서·구현 불일치�? ?�영 경계 관?�에???�시 ?�리?�습?�다.</p></div></section>
+      <section class="case-section"><span class="label">My role</span><div><h2>모델 ?�모?� ?�영 경계�?분리?�습?�다.</h2><ul><li>NIfTI·NumPy ?�싱�?GLB Mesh 변???�름 ?�리</li><li>?�일 ?�기·dtype·차원·NaN/Inf 검증과 ?�시?�일 ?�리</li><li>JWT ?�증, Private Storage?� ?�용?�별 경로 격리 ?�계</li><li>Vitals WebSocket replay?� Demo/Model inference mode 분리</li><li>Golden-Time?�로 민감?�보 ?�이 ?�성 ?�모 분석 컨텍?�트�??�달?�는 browser handoff 구현</li></ul></div></section>
+      <section class="case-section"><span class="label">Decision</span><div><h2>?�로???�일�?공개 URL???�뢰?��? ?�았?�니??</h2><h3>Safe parsing</h3><p><code>allow_pickle=False</code>�??�용?�고 object dtype, 비정??차원, NaN·Inf �?과도???�일 ?�기�?차단?�습?�다.</p><h3>Private storage</h3><p>?�성??Mesh?� Vitals ?�일???�용??경로�?격리?�고, ?�증???�용?�에게만 만료??Signed URL??발급?�도�??�계?�습?�다.</p><h3>Explicit inference boundary</h3><p>공개 배포???�성 ?�이??기반 Demo Inference�??�고, ?�제 모델 추론?� 별도 ?�존?�과 ?�원 조건???�구?�도�?분리?�습?�다.</p><h3>Minimal context handoff</h3><p>?�속 병원 ?�색?�는 ?�급?�·모?�리?�·병변 규모·?�요 진료 ??�� 같�? ?�모 컨텍?�트�??�달?�고 JWT, patientId, meshId, Signed URL�??�큰?� URL?�서 ?�외?�습?�다.</p></div></section>
 
       <section class="case-section live-evidence-section">
         <span class="label">System Flow</span>
         <div>
-          <h2>영상 입력과 Vitals를 하나의 멀티모달 흐름으로 연결했습니다.</h2>
-          <p>의료영상만 렌더링하는 데서 끝내지 않고 합성 Vitals CSV를 두 번째 입력으로 연결하고, WebSocket replay를 통해 생체신호와 데모 위험 점수를 같은 화면에서 모니터링합니다.</p>
+          <h2>?�상 ?�력�?Vitals�??�나??멀?�모???�름?�로 ?�결?�습?�다.</h2>
+          <p>?�료?�상�??�더링하???�서 ?�내지 ?�고 ?�성 Vitals CSV�???번째 ?�력?�로 ?�결?�고, WebSocket replay�??�해 ?�체?�호?� ?�모 ?�험 ?�수�?같�? ?�면?�서 모니?�링?�니??</p>
           <div class="demo-flow-rail" aria-label="Image to Vitals to Monitor flow"><span>IMAGE</span><i></i><span>VITALS</span><i></i><span>MONITOR</span></div>
           <div class="demo-evidence-grid">
             <figure class="case-shot">
-              <img src="assets/medi/medi-vitals-upload.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix에서 3D 의료영상과 Vitals 업로드가 완료된 실제 화면">
-              <figcaption><span>02 / IMAGE + VITALS → MULTI-MODAL INPUT</span></figcaption>
+              <img src="assets/medi/medi-vitals-upload.png?v=2" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix?�서 3D ?�료?�상�?Vitals ?�로?��? ?�료???�제 ?�면">
+              <figcaption><span>02 / IMAGE + VITALS ??MULTI-MODAL INPUT</span></figcaption>
             </figure>
             <figure class="case-shot">
-              <img src="assets/medi/medi-monitoring.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix에서 HR, BP, Resp, Temp, SpO2와 데모 위험 점수를 실시간 모니터링하는 실제 화면">
-              <figcaption><span>03 / VITALS REPLAY → LIVE MONITORING</span></figcaption>
+              <img src="assets/medi/medi-monitoring.png?v=2" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix?�서 HR, BP, Resp, Temp, SpO2?� ?�모 ?�험 ?�수�??�시�?모니?�링?�는 ?�제 ?�면">
+              <figcaption><span>03 / VITALS REPLAY ??LIVE MONITORING</span></figcaption>
             </figure>
           </div>
         </div>
@@ -75,47 +75,47 @@
       <section class="case-section live-evidence-section">
         <span class="label">Decision / Triage</span>
         <div>
-          <h2>위험 점수를 명시적인 Triage 상태로 변환합니다.</h2>
-          <p>합성 데이터 기반 위험 점수는 진단명이 아니라 데모용 의사결정 입력입니다. 포트폴리오에서는 최종 RED 상태와 위험 점수가 동시에 확인되는 화면을 사용해 모델 출력과 행동 상태의 경계를 보여줍니다.</p>
+          <h2>?�험 ?�수�?명시?�인 Triage ?�태�?변?�합?�다.</h2>
+          <p>?�성 ?�이??기반 ?�험 ?�수??진단명이 ?�니???�모???�사결정 ?�력?�니?? ?�트?�리?�에?�는 최종 RED ?�태?� ?�험 ?�수가 ?�시???�인?�는 ?�면???�용??모델 출력�??�동 ?�태??경계�?보여줍니??</p>
           <figure class="case-shot">
-            <img src="assets/medi/medi-red-triage.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix에서 RED 응급도 분류와 Golden-Time 연결 버튼이 표시된 실제 데모 화면">
-            <figcaption><span>04 / DEMO RISK SCORES → EXPLICIT RED TRIAGE STATE</span><strong>DEMO · NOT CLINICAL DIAGNOSIS</strong></figcaption>
+            <img src="assets/medi/medi-red-triage.png?v=2" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix?�서 RED ?�급??분류?� Golden-Time ?�결 버튼???�시???�제 ?�모 ?�면">
+            <figcaption><span>04 / DEMO RISK SCORES ??EXPLICIT RED TRIAGE STATE</span><strong>DEMO · NOT CLINICAL DIAGNOSIS</strong></figcaption>
           </figure>
         </div>
       </section>
 
-      <section class="case-section ecosystem-section"><span class="label">Model → System → Action</span><div><h2>모델 연구에서 시스템, 그리고 행동 지원까지 연결했습니다.</h2><p>세 결과물은 같은 의료 AI 문제의 연속선에 있지만 역할은 다릅니다. 연구 결과, 현재 프로토타입, 독립 제품의 경계를 유지하면서 실제 구현된 연결만 표시합니다.</p>
-        <div class="ecosystem-flow" aria-label="IMST-Mamba에서 Medi-Matrix를 거쳐 Golden-Time으로 이어지는 의료 AI 확장 구조">
-          <article class="ecosystem-node related-node"><div class="node-meta"><span>01 / MODEL</span><b>RELATED RESEARCH</b></div><h3>IMST-Mamba</h3><p>ICU 결측 패턴을 이용한 조기 패혈증 예측 모델을 독립 연구로 설계하고 비교 실험·Ablation을 수행했습니다.</p><a href="/project-imst-mamba">Research case study ↗</a></article>
-          <div class="ecosystem-connector solid-connector" aria-hidden="true"><span class="connector-label">Experimental<br>module boundary</span><i>→</i></div>
-          <article class="ecosystem-node current-node"><div class="node-meta"><span>02 / SYSTEM</span><b>CURRENT PROTOTYPE</b></div><h3>Medi-Matrix</h3><p>3D 의료영상과 Vitals를 결합하고 인증·Private Storage·WebSocket·Triage 흐름을 검증합니다.</p><small>공개 버전: Demo Inference / Synthetic Data</small><a class="node-live-link" href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Open live demo ↗</a></article>
-          <div class="ecosystem-connector solid-connector" aria-hidden="true"><span class="connector-label">Secure context<br>handoff</span><i>→</i></div>
-          <article class="ecosystem-node planned-node"><div class="node-meta"><span>03 / ACTION</span><b>CONNECTED DEMO</b></div><h3>Golden-Time</h3><p>독립 응급의료 탐색 서비스로, Medi-Matrix의 합성 데모 분석 컨텍스트를 받아 병원 추천 컨텍스트와 필터에 반영합니다.</p><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Live product ↗</a></article>
+      <section class="case-section ecosystem-section"><span class="label">Model ??System ??Action</span><div><h2>모델 ?�구?�서 ?�스?? 그리�??�동 지?�까지 ?�결?�습?�다.</h2><p>??결과물�? 같�? ?�료 AI 문제???�속?�에 ?��?�???��?� ?�릅?�다. ?�구 결과, ?�재 ?�로?��??? ?�립 ?�품??경계�??��??�면???�제 구현???�결�??�시?�니??</p>
+        <div class="ecosystem-flow" aria-label="IMST-Mamba?�서 Medi-Matrix�?거쳐 Golden-Time?�로 ?�어지???�료 AI ?�장 구조">
+          <article class="ecosystem-node related-node"><div class="node-meta"><span>01 / MODEL</span><b>RELATED RESEARCH</b></div><h3>IMST-Mamba</h3><p>ICU 결측 ?�턴???�용??조기 ?�혈�??�측 모델???�립 ?�구�??�계?�고 비교 ?�험·Ablation???�행?�습?�다.</p><a href="/project-imst-mamba">Research case study ??/a></article>
+          <div class="ecosystem-connector solid-connector" aria-hidden="true"><span class="connector-label">Experimental<br>module boundary</span><i>??/i></div>
+          <article class="ecosystem-node current-node"><div class="node-meta"><span>02 / SYSTEM</span><b>CURRENT PROTOTYPE</b></div><h3>Medi-Matrix</h3><p>3D ?�료?�상�?Vitals�?결합?�고 ?�증·Private Storage·WebSocket·Triage ?�름??검증합?�다.</p><small>공개 버전: Demo Inference / Synthetic Data</small><a class="node-live-link" href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Open live demo ??/a></article>
+          <div class="ecosystem-connector solid-connector" aria-hidden="true"><span class="connector-label">Secure context<br>handoff</span><i>??/i></div>
+          <article class="ecosystem-node planned-node"><div class="node-meta"><span>03 / ACTION</span><b>CONNECTED DEMO</b></div><h3>Golden-Time</h3><p>?�립 ?�급?�료 ?�색 ?�비?�로, Medi-Matrix???�성 ?�모 분석 컨텍?�트�?받아 병원 추천 컨텍?�트?� ?�터??반영?�니??</p><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Live product ??/a></article>
         </div>
-        <div class="case-note relationship-note"><strong>현재 구현 관계.</strong> IMST-Mamba는 독립 연구 프로젝트이며 공개 Medi-Matrix는 실제 학습 모델이 아닌 Demo Inference를 사용합니다. Medi-Matrix → Golden-Time은 브라우저 URL handoff로 구현되어 있으며 triage, modality, lesion volume, capabilities 등 최소 합성 데모 컨텍스트만 전달합니다. JWT·patientId·meshId·Signed URL·access token은 전달하지 않습니다. 이는 서버 간 자동 진료 의뢰나 임상적으로 검증된 통합 시스템을 의미하지 않습니다.</div>
+        <div class="case-note relationship-note"><strong>?�재 구현 관�?</strong> IMST-Mamba???�립 ?�구 ?�로?�트?�며 공개 Medi-Matrix???�제 ?�습 모델???�닌 Demo Inference�??�용?�니?? Medi-Matrix ??Golden-Time?� 브라?��? URL handoff�?구현?�어 ?�으�?triage, modality, lesion volume, capabilities ??최소 ?�성 ?�모 컨텍?�트�??�달?�니?? JWT·patientId·meshId·Signed URL·access token?� ?�달?��? ?�습?�다. ?�는 ?�버 �??�동 진료 ?�뢰???�상?�으�?검증된 ?�합 ?�스?�을 ?��??��? ?�습?�다.</div>
       </div></section>
 
       <section class="case-section live-evidence-section">
         <span class="label">Action / Demo Evidence</span>
         <div>
-          <h2>RED Triage를 병원 탐색 컨텍스트로 연결합니다.</h2>
-          <p>RED 분류와 Golden-Time 연결이 함께 확인되는 CODE RED 모달을 실제 데모 증거 화면으로 사용했습니다.</p>
+          <h2>RED Triage�?병원 ?�색 컨텍?�트�??�결?�니??</h2>
+          <p>RED 분류?� Golden-Time ?�결???�께 ?�인?�는 CODE RED 모달???�제 ?�모 증거 ?�면?�로 ?�용?�습?�다.</p>
           <figure class="case-shot">
-            <img src="assets/medi/medi-code-red-handoff.png" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix CODE RED 모달에서 RED 분류와 Golden-Time 병원 탐색 연결이 함께 표시된 실제 데모 화면">
-            <figcaption><span>05 / TRIAGE CONTEXT → GOLDEN-TIME HOSPITAL SEARCH</span><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Open Golden-Time ↗</a></figcaption>
+            <img src="assets/medi/medi-code-red-handoff.png?v=2" class="zoomable-image" loading="lazy" decoding="async" alt="Medi-Matrix CODE RED 모달?�서 RED 분류?� Golden-Time 병원 ?�색 ?�결???�께 ?�시???�제 ?�모 ?�면">
+            <figcaption><span>05 / TRIAGE CONTEXT ??GOLDEN-TIME HOSPITAL SEARCH</span><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Open Golden-Time ??/a></figcaption>
           </figure>
           <div class="handoff-boundary">
             <div><small>PASSES</small><p>triage · modality · lesion volume · required capabilities</p></div>
             <div><small>EXCLUDES</small><p>JWT · patientId · meshId · Signed URL · access token</p></div>
           </div>
-          <div class="case-note"><strong>Browser context handoff · Not clinical referral.</strong> 이 연결은 합성 데모 분석 컨텍스트를 병원 탐색에 전달하는 브라우저 수준 handoff이며, 서버 간 자동 진료 의뢰나 임상적으로 검증된 통합 시스템을 의미하지 않습니다.</div>
+          <div class="case-note"><strong>Browser context handoff · Not clinical referral.</strong> ???�결?� ?�성 ?�모 분석 컨텍?�트�?병원 ?�색???�달?�는 브라?��? ?��? handoff?�며, ?�버 �??�동 진료 ?�뢰???�상?�으�?검증된 ?�합 ?�스?�을 ?��??��? ?�습?�다.</div>
         </div>
       </section>
 
-      <section class="case-section"><span class="label">Evidence</span><div><h2>검증 범위</h2><div class="case-metrics"><div class="case-metric"><strong>50MB</strong><small>MRI / NumPy 기본 업로드 상한</small></div><div class="case-metric"><strong>PRIVATE</strong><small>사용자별 Storage 경로 격리</small></div><div class="case-metric"><strong>SIGNED URL</strong><small>만료형 결과 접근 경계</small></div><div class="case-metric"><strong>DEMO</strong><small>공개 배포 추론 모드</small></div></div><div class="case-note">현재 저장소에는 보안·인증·Vitals·Inference mode·Demo generator·Supabase·Frontend 동작을 검증하는 테스트가 분리되어 있습니다. 공개 버전은 임상 진단 시스템이 아니며 합성 데이터와 Demo Inference를 사용하는 아키텍처 검증용 프로토타입입니다.</div></div></section>
-      <section class="case-section"><span class="label">Learning</span><div><h2>의료 AI에서는 구현 범위를 정확히 말하는 것도 품질입니다.</h2><p>실험 기능, Demo 기능, 실제 모델 성능과 운영 가능한 범위를 구분해 설명하는 것이 보안 코드만큼 중요하다는 점을 배웠습니다.</p><div class="case-links"><a class="text-link" href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Medi-Matrix live demo ↗</a><a class="text-link" href="https://github.com/YunhuPark/Medi-Matrix" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a><a class="text-link" href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Golden-Time live product ↗</a></div></div></section>
+      <section class="case-section"><span class="label">Evidence</span><div><h2>검�?범위</h2><div class="case-metrics"><div class="case-metric"><strong>50MB</strong><small>MRI / NumPy 기본 ?�로???�한</small></div><div class="case-metric"><strong>PRIVATE</strong><small>?�용?�별 Storage 경로 격리</small></div><div class="case-metric"><strong>SIGNED URL</strong><small>만료??결과 ?�근 경계</small></div><div class="case-metric"><strong>DEMO</strong><small>공개 배포 추론 모드</small></div></div><div class="case-note">?�재 ?�?�소?�는 보안·?�증·Vitals·Inference mode·Demo generator·Supabase·Frontend ?�작??검증하???�스?��? 분리?�어 ?�습?�다. 공개 버전?� ?�상 진단 ?�스?�이 ?�니�??�성 ?�이?��? Demo Inference�??�용?�는 ?�키?�처 검증용 ?�로?��??�입?�다.</div></div></section>
+      <section class="case-section"><span class="label">Learning</span><div><h2>?�료 AI?�서??구현 범위�??�확??말하??것도 ?�질?�니??</h2><p>?�험 기능, Demo 기능, ?�제 모델 ?�능�??�영 가?�한 범위�?구분???�명?�는 것이 보안 코드만큼 중요?�다???�을 배웠?�니??</p><div class="case-links"><a class="text-link" href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Medi-Matrix live demo ??/a><a class="text-link" href="https://github.com/YunhuPark/Medi-Matrix" target="_blank" rel="noopener noreferrer">GitHub repository ??/a><a class="text-link" href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Golden-Time live product ??/a></div></div></section>
     </section>
-    <a class="next-project" href="/project-medical-insight"><small>NEXT CASE STUDY</small><strong>MEDICAL INSIGHT LAB</strong><span>↗</span></a>
+    <a class="next-project" href="/project-medical-insight"><small>NEXT CASE STUDY</small><strong>MEDICAL INSIGHT LAB</strong><span>??/span></a>
   </main>
 </body>
 </html>
