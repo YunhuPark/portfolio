@@ -36,20 +36,20 @@
 
   const previewContent = {
     algo: {
-      status: 'QUALITY HARDENING',
+      status: 'HARDENED MAIN',
       number: '01 / 03',
-      question: 'LLM 결과를 어디까지 신뢰할 수 있는가?',
-      evidence: '104 tests · unsupported numeric claim blocked · DB isolation · dry-run',
+      question: 'LLM 자동화를 어떻게 검증·승인·발행 경계 안에서 운영할 것인가?',
+      evidence: '198 tests · Fact Checker V2 · Queue Lineage V2 · auto-publish OFF',
       title: 'ALGO PIPELINE',
-      label: 'VERIFY / OPERATE'
+      label: 'VERIFY / REVIEW'
     },
     medi: {
-      status: 'SECURE MEDICAL AI',
+      status: 'VITALS MODEL / VISION DEMO',
       number: '02 / 03',
-      question: '의료 데이터를 어디까지 안전하게 처리할 수 있는가?',
-      evidence: '50MB input cap · Private Storage · Signed URL · Demo boundary',
+      question: '영상·Vitals 신호를 어떻게 안전한 전원 후보 탐색으로 연결할 것인가?',
+      evidence: 'GRU AUROC .795 · Utility .345 · Production E2E · Vision demo',
       title: 'MEDI-MATRIX',
-      label: 'VOLUME / VITALS'
+      label: 'RISK / TRANSFER'
     },
     insight: {
       status: 'CAUSAL ANALYSIS',
@@ -108,7 +108,7 @@
     imgEl.alt = triggerEl.alt || '확대된 이미지';
     overlay.classList.add('is-active');
     document.body.style.overflow = 'hidden';
-    
+
     setTimeout(() => {
       closeBtn.focus();
     }, 50);
@@ -117,9 +117,9 @@
   function closeLightbox() {
     overlay.classList.remove('is-active');
     document.body.style.overflow = '';
-    
-    setTimeout(() => { 
-      imgEl.src = ''; 
+
+    setTimeout(() => {
+      imgEl.src = '';
       if (lastFocusedElement) {
         lastFocusedElement.focus();
         lastFocusedElement = null;
@@ -127,58 +127,51 @@
     }, 300);
   }
 
-  // Set tabindex and role dynamically if missing
   function setupKeyboardAccess() {
-    document.querySelectorAll('.zoomable-image').forEach(img => {
+    document.querySelectorAll('.zoomable-image').forEach((img) => {
       if (!img.hasAttribute('tabindex')) {
         img.setAttribute('tabindex', '0');
       }
       if (!img.hasAttribute('role')) {
         img.setAttribute('role', 'button');
       }
-      const altText = img.alt ? img.alt + ' 확대 보기' : '이미지 확대 보기';
+      const altText = img.alt ? `${img.alt} 확대 보기` : '이미지 확대 보기';
       if (!img.hasAttribute('aria-label') || img.getAttribute('aria-label') === '이미지 확대 보기') {
         img.setAttribute('aria-label', altText);
       }
     });
   }
 
-  // Run once immediately and maybe re-run if DOM changes
   setupKeyboardAccess();
-  
-  // Create a MutationObserver to handle dynamically added images
+
   const observer = new MutationObserver((mutations) => {
-    let shouldUpdate = false;
-    mutations.forEach(m => {
-      if (m.addedNodes.length) shouldUpdate = true;
-    });
-    if (shouldUpdate) setupKeyboardAccess();
+    if (mutations.some((mutation) => mutation.addedNodes.length)) {
+      setupKeyboardAccess();
+    }
   });
   observer.observe(document.body, { childList: true, subtree: true });
 
-  document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('zoomable-image')) {
-      openLightbox(e.target);
+  document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('zoomable-image')) {
+      openLightbox(event.target);
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.target.classList.contains('zoomable-image')) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openLightbox(e.target);
-      }
+  document.addEventListener('keydown', (event) => {
+    if (event.target.classList.contains('zoomable-image') && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      openLightbox(event.target);
     }
   });
 
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay || e.target === closeBtn) {
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay || event.target === closeBtn) {
       closeLightbox();
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('is-active')) {
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && overlay.classList.contains('is-active')) {
       closeLightbox();
     }
   });
