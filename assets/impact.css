@@ -1,0 +1,257 @@
+.impact-section {
+  padding: 104px var(--pad) 126px;
+  border-top: 1px solid var(--line-paper);
+}
+
+.impact-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+  gap: clamp(42px, 7vw, 118px);
+  align-items: end;
+  margin: 72px 0 64px;
+}
+
+.impact-intro h2 {
+  margin: 0;
+  max-width: 950px;
+  font-size: clamp(42px, 6vw, 86px);
+  font-weight: 800;
+  line-height: .97;
+  letter-spacing: -.06em;
+}
+
+.impact-intro h2 em {
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", "Noto Serif KR", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.impact-summary {
+  padding-bottom: 8px;
+}
+
+.impact-summary p {
+  margin: 0 0 20px;
+  max-width: 520px;
+  color: var(--muted-paper);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.impact-summary a {
+  display: inline-block;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-decoration: none;
+}
+
+.impact-list {
+  border-top: 2px solid var(--ink);
+}
+
+.impact-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(180px, .68fr) minmax(300px, 1.15fr) minmax(260px, 1fr) 28px;
+  gap: clamp(24px, 4vw, 72px);
+  align-items: center;
+  min-height: 184px;
+  padding: 28px 4px;
+  border-bottom: 1px solid var(--line-paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition: padding-left .22s ease, color .22s ease, background .22s ease;
+}
+
+.impact-row::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  content: "";
+  background: var(--accent);
+  transition: width .22s ease;
+}
+
+.impact-row:hover,
+.impact-row:focus-visible {
+  padding-left: 18px;
+  color: var(--accent-deep);
+  background: rgba(239, 91, 53, .035);
+  outline: 0;
+}
+
+.impact-row:hover::before,
+.impact-row:focus-visible::before {
+  width: 5px;
+}
+
+.impact-label {
+  display: grid;
+  gap: 6px;
+  align-self: start;
+  padding-top: 9px;
+}
+
+.impact-label span,
+.impact-label small,
+.impact-note {
+  color: var(--muted-paper);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.impact-label b {
+  font-size: 13px;
+  letter-spacing: .03em;
+}
+
+.impact-number {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: baseline;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.impact-number span,
+.impact-number strong {
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 900;
+  line-height: .86;
+  letter-spacing: -.075em;
+}
+
+.impact-number .impact-before {
+  color: #918a80;
+  font-weight: 700;
+}
+
+.impact-number i {
+  color: var(--accent);
+  font-size: clamp(27px, 3vw, 46px);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.impact-number small {
+  margin-left: 2px;
+  color: var(--muted-paper);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.impact-detail p {
+  margin: 0;
+  color: var(--muted-paper);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.impact-detail strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.impact-note {
+  display: block;
+  margin-top: 10px;
+  line-height: 1.55;
+  letter-spacing: .08em;
+  text-transform: none;
+}
+
+.impact-arrow {
+  align-self: center;
+  font-size: 21px;
+  transition: transform .22s ease;
+}
+
+.impact-row:hover .impact-arrow,
+.impact-row:focus-visible .impact-arrow {
+  transform: translate(4px, -4px);
+}
+
+@media (max-width: 1020px) {
+  .impact-row {
+    grid-template-columns: minmax(150px, .6fr) minmax(250px, 1fr) minmax(220px, .9fr) 24px;
+    gap: 28px;
+  }
+
+  .impact-number span,
+  .impact-number strong {
+    font-size: clamp(44px, 7vw, 72px);
+  }
+}
+
+@media (max-width: 820px) {
+  .impact-section {
+    padding-top: 82px;
+    padding-bottom: 92px;
+  }
+
+  .impact-intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 54px 0 46px;
+  }
+
+  .impact-summary {
+    padding-bottom: 0;
+  }
+
+  .impact-row {
+    grid-template-columns: minmax(0, 1fr) 24px;
+    gap: 18px 24px;
+    min-height: 0;
+    padding: 28px 2px 32px;
+  }
+
+  .impact-label,
+  .impact-number,
+  .impact-detail {
+    grid-column: 1;
+  }
+
+  .impact-label {
+    padding-top: 0;
+  }
+
+  .impact-number {
+    white-space: normal;
+  }
+
+  .impact-arrow {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .impact-number {
+    gap: 8px 11px;
+  }
+
+  .impact-number span,
+  .impact-number strong {
+    font-size: clamp(40px, 15vw, 62px);
+  }
+
+  .impact-number i {
+    font-size: 28px;
+  }
+
+  .impact-detail p {
+    font-size: 13px;
+  }
+}

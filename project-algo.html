@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Algo Pipeline case study — LLM 콘텐츠 자동화에 Quality Gate, 실패 상태, 재시도와 DB 격리를 적용한 Reliability Engineering 사례">
+  <meta name="description" content="Algo Pipeline case study — 근거 기반 생성, Queue Lineage V2, Fact Checker V2, 승인·발행 경계와 분석 루프를 갖춘 AI 콘텐츠 운영 시스템">
   <meta name="theme-color" content="#11110f">
   <meta property="og:title" content="Algo Pipeline — Park Yunhu">
-  <meta property="og:description" content="LLM 결과를 근거·형식·상태로 검증하고 실패를 통제한 Autonomous Content Agent case study.">
+  <meta property="og:description" content="LLM 결과를 근거·형식·상태로 검증하고 사람 승인과 발행 경계를 분리한 evidence-bound content agent case study.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://park-yunhu-portfolio.vercel.app/project-algo">
   <meta name="twitter:card" content="summary">
@@ -15,7 +15,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css?v=10">
   <link rel="stylesheet" href="assets/refinements.css?v=10">
-  <script defer src="assets/site.js?v=10"></script>
+  <script defer src="assets/site.js?v=13"></script>
 </head>
 <body class="case-body">
   <a class="skip-link" href="#case-main">본문으로 이동</a>
@@ -33,26 +33,34 @@
     <section class="case-hero">
       <div class="case-topline"><span>CASE STUDY / 01</span><span>LLM AGENT · RELIABILITY</span></div>
       <div class="case-title">
-        <span class="case-no">01 — QUALITY HARDENING</span>
+        <span class="case-no">01 — EVIDENCE-BOUND AUTOMATION</span>
         <h1>ALGO<br>PIPELINE</h1>
-        <p>콘텐츠를 생성하는 자동화가 아니라, 결과를 검증하고 실패를 통제하며 운영 지표까지 남기는 AI Agent Pipeline을 설계했습니다.</p>
+        <p>뉴스 수집부터 카드뉴스 생성·검증·사람 승인·Instagram 게시 경계·성과 기록까지 연결하되, 검증되지 않은 결과는 다음 단계로 넘기지 않는 AI 콘텐츠 운영 시스템을 설계했습니다.</p>
       </div>
       <div class="case-hero-meta">
         <div><small>TYPE</small><span>Personal Project</span></div>
         <div><small>ROLE</small><span>AI · Backend · Automation</span></div>
-        <div><small>STATUS</small><span>Hardening branch / Dry-run</span></div>
+        <div><small>STATUS</small><span>Hardened main / staged rollout</span></div>
         <div><small>STACK</small><span>Python · FastAPI · SQLite · LLM API</span></div>
       </div>
     </section>
 
     <section class="case-content">
-      <div class="case-lead"><span class="label">Core question</span><blockquote>LLM이 만든 콘텐츠를 무인으로 발행해도 신뢰할 수 있는가?</blockquote></div>
-      <section class="case-section"><span class="label">Problem</span><div><h2>생성 성공과 운영 성공은 다릅니다.</h2><p>LLM 기반 카드뉴스 자동화는 빠르게 만들 수 있지만, 출처에 없는 수치 생성, API 장애에 따른 중복 게시, 테스트 중 운영 DB 오염 같은 문제가 실제 운영 위험으로 이어질 수 있었습니다.</p></div></section>
-      <section class="case-section"><span class="label">My role</span><div><h2>파이프라인을 복원하고 신뢰성 계층을 추가했습니다.</h2><ul><li>수집·생성·팩트체크·렌더링·발행 파이프라인 복원 및 구조 정리</li><li>Claim/Evidence 분리와 deterministic·semantic 검증 설계</li><li>게시 상태, retry allowlist, idempotency와 rollback 흐름 설계</li><li>A/B 배정, save_rate_48h, 편집 이력과 guardrail 지표 구현</li></ul></div></section>
-      <section class="case-section"><span class="label">Decision</span><div><h2>규칙으로 판정할 오류와 의미로 판단할 오류를 분리했습니다.</h2><h3>Deterministic Gate</h3><p>숫자 근거, 필수 필드, 레이아웃 overflow처럼 명확한 오류는 코드로 검사했습니다.</p><h3>Semantic Critic</h3><p>문맥 왜곡과 표현 품질처럼 규칙만으로 판정하기 어려운 문제는 의미 기반 평가로 분리했습니다.</p><h3>Fail-closed</h3><p>파싱 실패나 근거 부족을 빈 결과로 넘기지 않고, 명시적인 실패 상태로 남기도록 설계했습니다.</p></div></section>
-      <section class="case-section"><span class="label">System</span><div><h2>생성·검증·발행·분석을 하나의 상태 흐름으로 연결했습니다.</h2><div class="case-visual"><div class="preview-stage"><div class="algo-diagram"><span>COLLECT</span><i></i><span>GENERATE</span><i></i><span class="accent-box">VERIFY</span><i></i><span>OPERATE</span></div><div class="algo-log"><code>[PASS] unsupported numeric claim blocked</code><code>[PASS] production DB mutation: 0</code><code>[STATE] draft → reviewed → published → rolled_back</code></div></div></div></div></section>
-      <section class="case-section"><span class="label">Evidence</span><div><h2>실패를 통제했다는 증거를 남겼습니다.</h2><div class="case-metrics"><div class="case-metric"><strong>104</strong><small>품질 강화 브랜치 자동화 테스트 기록</small></div><div class="case-metric"><strong>0</strong><small>테스트 중 운영 DB 변경</small></div><div class="case-metric"><strong>BLOCKED</strong><small>근거 없는 숫자 Claim · NUMBER_UNSUPPORTED</small></div><div class="case-metric"><strong>DRY-RUN</strong><small>외부 게시 호출 보호 상태</small></div></div><div class="case-note">현재 품질 강화 작업은 Draft PR 기준이며, 외부 Meta/Instagram 게시 호출은 안전을 위해 Dry-run 상태로 검증했습니다. 별도의 Reliability Console은 과거 운영형 사이트 대신 현재 검증 상태와 시스템 경계를 보여주는 포트폴리오용 증거 화면입니다.</div></div></section>
-      <section class="case-section"><span class="label">Learning</span><div><h2>프롬프트보다 실패를 통제하는 구조가 먼저였습니다.</h2><p>LLM 서비스의 신뢰성은 좋은 프롬프트 하나보다 검증 단계, 실패 상태, 재시도 정책과 관측 가능성에서 결정된다는 점을 배웠습니다.</p><div class="case-links"><a class="text-link" href="https://algo-site-hazel.vercel.app" target="_blank" rel="noopener noreferrer">Reliability Console ↗</a><a class="text-link" href="https://github.com/YunhuPark/algo-pipeline" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div></div></section>
+      <div class="case-lead"><span class="label">Core question</span><blockquote>LLM 자동화를 어떻게 검증·승인·발행 경계 안에서 운영할 것인가?</blockquote></div>
+
+      <section class="case-section"><span class="label">Problem</span><div><h2>생성 성공과 운영 성공은 다릅니다.</h2><p>출처에 없는 수치 생성, 검증되지 않은 Queue 항목, 원격 게시 성공 여부가 불확실한 상태의 재시도, 테스트 중 운영 DB 오염은 실제 자동화에서 모두 운영 위험이 됩니다. 그래서 생성 품질만 높이는 대신 각 단계의 근거·상태·권한을 코드로 분리했습니다.</p></div></section>
+
+      <section class="case-section"><span class="label">My role</span><div><h2>파이프라인을 신뢰성 중심 운영 구조로 재설계했습니다.</h2><ul><li>Queue Lineage V2로 source metadata·schema version·lineage hash 검증</li><li>Claim/Evidence 분리, deterministic verifier와 Semantic Critic을 이용한 Fact Checker V2</li><li>publisher 호출 전 durable attempt 기록과 uncertain/stale attempt 자동 재시도 차단</li><li>운영 DB와 테스트 DB를 분리하고 CI에서 DB/WAL/SHM 생성 여부까지 검증</li><li>Instagram Login 인증, read-only account preflight, credential/token 로그 제거</li><li>Analytics V2의 실험·성과 데이터와 사람 검토 경계를 분리</li></ul></div></section>
+
+      <section class="case-section"><span class="label">System</span><div><h2>Collect → Verify → Review → Publish를 하나의 상태 흐름으로 연결했습니다.</h2><div class="case-visual"><div class="preview-stage"><div class="algo-diagram"><span>COLLECT</span><i></i><span>GENERATE</span><i></i><span class="accent-box">VERIFY</span><i></i><span>REVIEW</span></div><div class="algo-log"><code>[BLOCK] unsupported numeric claim</code><code>[PASS] Queue lineage attestation</code><code>[SAFE] production DB mutation: 0</code><code>[OFF] unattended publish by default</code></div></div></div></div></section>
+
+      <section class="case-section"><span class="label">Decision</span><div><h2>오류를 숨기지 않고 명시적인 실패 상태로 남겼습니다.</h2><h3>Deterministic Gate</h3><p>숫자 근거, 필수 필드, schema·lineage 불일치처럼 명확히 판정할 수 있는 오류는 코드로 차단합니다.</p><h3>Semantic Critic</h3><p>문맥 왜곡이나 근거와 표현 사이의 의미 차이는 의미 기반 검증 단계에서 다시 확인합니다.</p><h3>Fail-closed publish boundary</h3><p>계정 불일치, 자격증명 오류, 공개 이미지 URL 미설정, 불확실한 원격 게시 상태에서는 Queue를 소모하거나 자동 재시도하지 않습니다.</p></div></section>
+
+      <section class="case-section"><span class="label">Evidence</span><div><h2>현재 main 기준으로 운영 경계를 증명합니다.</h2><div class="case-metrics"><div class="case-metric"><strong>198</strong><small>Instagram 인증 하드닝 병합 시 전체 테스트</small></div><div class="case-metric"><strong>0</strong><small>해당 검증에서 production DB write</small></div><div class="case-metric"><strong>BLOCKED</strong><small>근거 없는 숫자 Claim</small></div><div class="case-metric"><strong>OFF</strong><small>기본 unattended auto-publish</small></div></div><div class="case-note"><strong>현재 기준.</strong> 초기 Quality Hardening PR #1은 이미 main에 병합됐고 이후 staged rollout, Windows test hardening, public image delivery guard, Instagram Login credential hardening까지 추가 병합됐습니다. 실제 무인 게시 활성화는 별도 운영 승인 경계로 남겨 두었습니다.</div></div></section>
+
+      <section class="case-section"><span class="label">Active experiment</span><div><h2>다음 단계는 생성량이 아니라 품질 폐루프입니다.</h2><p>현재 Draft PR #7에서는 근거 기반 생성 → 사람 편집·승인 → 48시간 성과 snapshot → 주간 품질 회고 → 승인 대기 실험 제안으로 이어지는 closed-loop 품질 개선을 검증 중입니다.</p><div class="case-note">이 기능은 아직 Draft이므로 main의 완료 기능처럼 표현하지 않습니다. 최신 PR CI는 통과했지만, 실제 카드뉴스 샘플의 시각 검토 후 병합 여부를 판단하도록 경계를 유지합니다.</div><div class="case-links"><a class="text-link" href="https://github.com/YunhuPark/algo-pipeline/pull/7" target="_blank" rel="noopener noreferrer">Active Draft PR #7 ↗</a></div></div></section>
+
+      <section class="case-section"><span class="label">Learning</span><div><h2>프롬프트보다 실패를 통제하는 구조가 먼저였습니다.</h2><p>LLM 서비스의 신뢰성은 좋은 프롬프트 하나보다 출처 lineage, 검증 단계, 사람 승인, 재시도 정책과 관측 가능한 상태 전이에서 결정된다는 점을 구현으로 확인했습니다.</p><div class="case-links"><a class="text-link" href="https://algo-site-hazel.vercel.app" target="_blank" rel="noopener noreferrer">Reliability Console ↗</a><a class="text-link" href="https://github.com/YunhuPark/algo-pipeline" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></div></div></section>
     </section>
 
     <a class="next-project" href="/project-medi-matrix"><small>NEXT CASE STUDY</small><strong>MEDI-MATRIX</strong><span>↗</span></a>
