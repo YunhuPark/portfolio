@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="assets/refinements.css?v=9">
   <script defer src="assets/spline-config.js?v=9"></script>
   <script defer src="assets/reliability-core.js?v=9"></script>
-  <script defer src="assets/site.js?v=12"></script>
+  <script defer src="assets/site.js?v=13"></script>
   <script defer src="assets/spline-loader.js?v=9"></script>
 </head>
 
@@ -90,26 +90,16 @@
           </div>
 
           <div class="scene-bottomline">
-            <div>
-              <small>INPUT</small>
-              <strong>CHAOTIC OUTPUT</strong>
-            </div>
+            <div><small>INPUT</small><strong>CHAOTIC OUTPUT</strong></div>
             <span aria-hidden="true">→</span>
-            <div>
-              <small>OUTPUT</small>
-              <strong>VERIFIED SYSTEM</strong>
-            </div>
+            <div><small>OUTPUT</small><strong>VERIFIED SYSTEM</strong></div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="work" class="work-section paper-section" aria-labelledby="work-title">
-      <div class="section-index">
-        <span>01</span>
-        <span>SELECTED WORK</span>
-      </div>
-
+      <div class="section-index"><span>01</span><span>SELECTED WORK</span></div>
       <div class="work-heading">
         <h2 id="work-title">세 개의 대표 사례,<br>하나의 엔지니어링 원칙.</h2>
         <p>서로 다른 문제를 다루지만, 결과를 그대로 보여주는 데서 끝나지 않고 검증·보안·운영 경계를 함께 설계했습니다.</p>
@@ -121,22 +111,20 @@
             <span class="project-no">01</span>
             <span class="project-copy">
               <strong>Algo Pipeline</strong>
-              <small>Autonomous Content Agent · Reliability</small>
-              <span class="project-evidence">104 tests · unsupported claim blocked · dry-run</span>
+              <small>Evidence-bound Content Agent · Reliability</small>
+              <span class="project-evidence">198 tests · Fact Checker V2 · Queue Lineage V2 · auto-publish OFF</span>
             </span>
-            <span class="project-year">2026</span>
-            <span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span>
           </a>
 
           <a class="project-row" role="listitem" href="/project-medi-matrix" data-project="medi">
             <span class="project-no">02</span>
             <span class="project-copy">
               <strong>Medi-Matrix</strong>
-              <small>Secure Multi-modal Medical AI</small>
-              <span class="project-evidence">50MB input cap · Private Storage · Signed URL · Demo</span>
+              <small>Vitals AI · Transfer Decision Support</small>
+              <span class="project-evidence">GRU AUROC .795 · Utility .345 · Production E2E · Vision demo</span>
             </span>
-            <span class="project-year">2026</span>
-            <span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span>
           </a>
 
           <a class="project-row" role="listitem" href="/project-medical-insight" data-project="insight">
@@ -146,77 +134,38 @@
               <small>Causal Analysis · Data Science</small>
               <span class="project-evidence">3,713 videos · PSM 0.63× · DiD +3.4% (n.s.)</span>
             </span>
-            <span class="project-year">2026</span>
-            <span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span>
           </a>
         </div>
 
         <aside class="project-preview project-preview-3d" aria-live="polite">
-          <div class="preview-topline">
-            <span data-preview-status>QUALITY HARDENING</span>
-            <span data-preview-number>01 / 03</span>
-          </div>
-
+          <div class="preview-topline"><span data-preview-status>HARDENED MAIN</span><span data-preview-number>01 / 03</span></div>
           <div class="work-scene-wrap">
             <canvas id="work-core" class="scene-canvas work-scene-canvas" aria-label="선택한 프로젝트를 추상화한 3D 시각화"></canvas>
-            <div class="work-scene-fallback" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <div class="work-scene-title">
-              <small data-scene-label>VERIFY / OPERATE</small>
-              <strong data-scene-title>ALGO PIPELINE</strong>
-            </div>
+            <div class="work-scene-fallback" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="work-scene-title"><small data-scene-label>VERIFY / REVIEW</small><strong data-scene-title>ALGO PIPELINE</strong></div>
           </div>
-
           <div class="preview-footer">
-            <div>
-              <small>QUESTION</small>
-              <p data-preview-question>LLM 결과를 어디까지 신뢰할 수 있는가?</p>
-            </div>
-            <div>
-              <small>EVIDENCE</small>
-              <p data-preview-evidence>104 tests · unsupported numeric claim blocked · DB isolation · dry-run</p>
-            </div>
+            <div><small>QUESTION</small><p data-preview-question>LLM 자동화를 어떻게 검증·승인·발행 경계 안에서 운영할 것인가?</p></div>
+            <div><small>EVIDENCE</small><p data-preview-evidence>198 tests · Fact Checker V2 · Queue Lineage V2 · auto-publish OFF</p></div>
           </div>
         </aside>
       </div>
     </section>
 
     <section id="principles" class="principles-section dark-section" aria-labelledby="principles-title">
-      <div class="section-index light">
-        <span>02</span>
-        <span>ENGINEERING PRINCIPLES</span>
-      </div>
-      <div class="principles-intro">
-        <h2 id="principles-title">좋은 AI 시스템은<br>결과보다 <em>경계</em>가 선명합니다.</h2>
-      </div>
+      <div class="section-index light"><span>02</span><span>ENGINEERING PRINCIPLES</span></div>
+      <div class="principles-intro"><h2 id="principles-title">좋은 AI 시스템은<br>결과보다 <em>경계</em>가 선명합니다.</h2></div>
       <div class="principle-list">
-        <article>
-          <span>01</span>
-          <h3>검증할 수 없는 출력은<br>운영 결과가 아닙니다.</h3>
-          <p>LLM과 모델의 결과를 최종 답으로 취급하지 않고, 근거·형식·상태를 검사하는 계층을 둡니다.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>정확도 하나보다<br>문제에 맞는 지표를 봅니다.</h3>
-          <p>불균형 데이터, 하위집단, 교란변수와 실제 실패 비용을 반영해 평가 기준을 다시 설계합니다.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>데모와 운영의 차이를<br>코드로 명시합니다.</h3>
-          <p>인증, 입력 검증, 환경 분리, 재시도와 실패 상태까지 포함해야 서비스라고 생각합니다.</p>
-        </article>
+        <article><span>01</span><h3>검증할 수 없는 출력은<br>운영 결과가 아닙니다.</h3><p>LLM과 모델의 결과를 최종 답으로 취급하지 않고, 근거·형식·상태를 검사하는 계층을 둡니다.</p></article>
+        <article><span>02</span><h3>정확도 하나보다<br>문제에 맞는 지표를 봅니다.</h3><p>불균형 데이터, 하위집단, 교란변수와 실제 실패 비용을 반영해 평가 기준을 다시 설계합니다.</p></article>
+        <article><span>03</span><h3>데모와 운영의 차이를<br>코드로 명시합니다.</h3><p>인증, 입력 검증, 환경 분리, 재시도와 실패 상태까지 포함해야 서비스라고 생각합니다.</p></article>
       </div>
     </section>
 
     <section id="process" class="process-section paper-section" aria-labelledby="process-title">
-      <div class="section-index">
-        <span>03</span>
-        <span>HOW I WORK</span>
-      </div>
-      <div class="process-heading">
-        <h2 id="process-title">문제 정의에서<br>검증된 결과까지.</h2>
-      </div>
+      <div class="section-index"><span>03</span><span>HOW I WORK</span></div>
+      <div class="process-heading"><h2 id="process-title">문제 정의에서<br>검증된 결과까지.</h2></div>
       <ol class="process-list">
         <li><span>01</span><div><strong>Define</strong><p>사용자 불편, 데이터 한계, 실패 비용을 먼저 정의합니다.</p></div></li>
         <li><span>02</span><div><strong>Design</strong><p>입출력 계약과 상태 흐름, 예외 시나리오를 문서화합니다.</p></div></li>
@@ -227,46 +176,25 @@
     </section>
 
     <section id="research" class="additional-section paper-section" aria-labelledby="additional-title">
-      <div class="section-index">
-        <span>04</span>
-        <span>RESEARCH &amp; ADDITIONAL WORK</span>
-      </div>
+      <div class="section-index"><span>04</span><span>RESEARCH &amp; ADDITIONAL WORK</span></div>
       <h2 id="additional-title">Related research<br>&amp; independent products.</h2>
       <p class="additional-intro">모델 연구, 멀티모달 시스템, 응급의료 탐색 제품을 각각의 구현 범위로 구분하면서 실제 연결 지점도 함께 보여줍니다.</p>
       <div class="additional-list">
-        <a href="/project-imst-mamba">
-          <span>IMST-Mamba</span>
-          <small>독립 시계열 연구 · Medi-Matrix에서 Vitals 추론 아이디어와 실험적 모듈 경계로 연결</small>
-          <b>RELATED RESEARCH ↗</b>
-        </a>
-        <a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">
-          <span>Golden-Time</span>
-          <small>독립 응급의료 탐색 서비스 · Medi-Matrix 합성 데모 컨텍스트를 비식별 URL 파라미터로 전달하는 handoff 구현</small>
-          <b>LIVE PRODUCT ↗</b>
-        </a>
-        <a href="https://github.com/YunhuPark/EST_Mareungil_21" target="_blank" rel="noopener noreferrer">
-          <span>마른길</span>
-          <small>팀 모델 상승전이 Recall 0.731 · 나의 기여: SafeRoute 계약, no_safe_route, fallback 정책 · 일부 Fixture 기반</small>
-          <b>TEAM PROJECT ↗</b>
-        </a>
+        <a href="/project-imst-mamba"><span>IMST-Mamba</span><small>독립 시계열 연구 · Medi-Matrix와는 별도 연구 프로젝트로 비교·Ablation 근거를 제공</small><b>RELATED RESEARCH ↗</b></a>
+        <a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer"><span>Golden-Time</span><small>독립 응급의료 탐색 서비스 · Medi-Matrix의 transfer_resources_v1 자원 조건을 받아 후보 탐색/랭킹에 반영</small><b>LIVE PRODUCT ↗</b></a>
+        <a href="https://github.com/YunhuPark/EST_Mareungil_21" target="_blank" rel="noopener noreferrer"><span>마른길</span><small>팀 모델 상승전이 Recall 0.731 · 나의 기여: SafeRoute 계약, no_safe_route, fallback 정책 · 일부 Fixture 기반</small><b>TEAM PROJECT ↗</b></a>
       </div>
     </section>
 
     <section class="contact-section dark-section" aria-labelledby="contact-title">
-      <div class="contact-meta">
-        <span>AVAILABLE FOR</span>
-        <span>AI ENGINEER · LLM ENGINEER · MEDICAL AI</span>
-      </div>
+      <div class="contact-meta"><span>AVAILABLE FOR</span><span>AI ENGINEER · LLM ENGINEER · MEDICAL AI</span></div>
       <h2 id="contact-title">LET'S BUILD<br><em>RELIABLE AI.</em></h2>
       <div class="contact-links">
         <a href="mailto:byunhu35@gmail.com">Email ↗</a>
         <a href="https://github.com/YunhuPark" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <a href="https://app.notion.com/p/AI-Engineer-Portfolio-3c4bfec501b38136a31cc143538bbe27?pvs=12" target="_blank" rel="noopener noreferrer">Notion ↗</a>
       </div>
-      <footer class="footer-line">
-        <span>© <span data-year>2026</span> PARK YUNHU</span>
-        <span>BUILT FOR CLARITY, EVIDENCE, AND RELIABILITY.</span>
-      </footer>
+      <footer class="footer-line"><span>© <span data-year>2026</span> PARK YUNHU</span><span>BUILT FOR CLARITY, EVIDENCE, AND RELIABILITY.</span></footer>
     </section>
   </main>
 </body>
