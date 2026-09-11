@@ -1,0 +1,4 @@
+CURRENT_MEDI_PRODUCTION_CAPTURE_PASS
+source=https://medi-matrix.vercel.app
+captured_at=2026-09-11T00:43:41.988Z
+viewport=1600x900
