@@ -299,3 +299,49 @@
     padding-left: 28px;
   }
 }
+
+
+/* Medi-Matrix recruiter-density pass — 2026-09-11 */
+.medi-case-body .case-section h2 { max-width: 820px; }
+.medi-case-body .case-section h3 { margin: 22px 0 8px; font-size: 18px; line-height: 1.35; }
+.medi-case-body .case-shot { margin-top: 20px; }
+.medi-case-body .case-shot img { max-height: 560px; margin-inline: auto; }
+.medi-case-body .case-shot.case-shot-hero img { max-height: 500px; }
+.medi-case-body .demo-flow-rail { margin-top: 18px; padding-block: 11px; }
+.medi-case-body .demo-evidence-grid { margin-top: 20px; gap: clamp(22px, 2.5vw, 34px); }
+.medi-case-body .demo-evidence-grid .case-shot:nth-child(2) { max-width: 320px; }
+.medi-case-body .demo-evidence-grid .case-shot:nth-child(2) img { max-height: 480px; }
+.medi-case-body .handoff-boundary { margin-top: 18px; }
+.medi-case-body .handoff-boundary > div { padding: 16px 18px; }
+.medi-case-body .case-note { margin-top: 14px; }
+.medi-case-body .case-visual .preview-stage { min-height: 230px; }
+.medi-case-body .case-visual .algo-log { margin-top: 24px; }
+
+@media (min-width: 821px) {
+  .medi-case-body .case-content { width: min(100%, 1280px); margin-inline: auto; padding: 76px clamp(32px, 3vw, 48px) 92px; }
+  .medi-case-body .case-lead,
+  .medi-case-body .case-section { grid-template-columns: 140px minmax(0, 1fr); gap: clamp(28px, 3vw, 42px); }
+  .medi-case-body .case-section { padding: 34px 0; }
+  .medi-case-body .case-section h2 { margin-bottom: 14px; font-size: clamp(27px, 2.35vw, 34px); line-height: 1.2; }
+  .medi-case-body .case-section p { max-width: 800px; margin-bottom: 12px; font-size: 15px; line-height: 1.72; }
+  .medi-case-body .case-section li { padding-block: 11px; font-size: 14px; line-height: 1.6; }
+  .medi-case-body .case-section li::before { top: 11px; }
+}
+
+@media (max-width: 820px) {
+  .medi-case-body .case-content { padding-top: 64px; padding-bottom: 78px; }
+  .medi-case-body .case-lead,
+  .medi-case-body .case-section { gap: 14px; }
+  .medi-case-body .case-section { padding: 30px 0; }
+  .medi-case-body .case-section h2 { margin-bottom: 14px; font-size: clamp(24px, 7.6vw, 29px); line-height: 1.24; }
+  .medi-case-body .case-section h3 { margin-top: 18px; font-size: 17px; }
+  .medi-case-body .case-section p { margin-bottom: 12px; font-size: 15px; line-height: 1.7; }
+  .medi-case-body .case-shot img { width: auto; max-width: 100%; max-height: 430px; margin-inline: auto; }
+  .medi-case-body .case-shot.case-shot-hero img { max-height: 340px; }
+  .medi-case-body .demo-evidence-grid { gap: 24px; }
+  .medi-case-body .demo-evidence-grid .case-shot:nth-child(2) { max-width: none; }
+  .medi-case-body .demo-evidence-grid .case-shot:nth-child(2) img { width: auto; max-height: 390px; margin-inline: auto; }
+  .medi-case-body .case-section li { padding: 10px 0 10px 27px; font-size: 14px; line-height: 1.58; }
+  .medi-case-body .case-section li::before { top: 10px; }
+  .medi-case-body .handoff-boundary > div { padding: 14px 15px; }
+}
