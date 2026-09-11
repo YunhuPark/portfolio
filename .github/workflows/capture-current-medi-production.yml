@@ -1,4 +1,4 @@
-name: Capture current Medi-Matrix production
+name: Finalize current Medi-Matrix captures
 
 on:
   pull_request:
@@ -8,10 +8,9 @@ permissions:
   contents: write
 
 jobs:
-  capture:
+  finalize:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
     steps:
       - name: Check out PR branch
         uses: actions/checkout@v4
@@ -19,108 +18,19 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install Playwright
+      - name: Bust screenshot cache and remove temporary workflow
         run: |
-          npm install --no-save playwright@1.55.0
-          npx playwright install --with-deps chromium
+          sed -i 's/medi-viewer-3d.png?v=3/medi-viewer-3d.png?v=4/g' project-medi-matrix.html
+          sed -i 's/medi-vitals-upload.png?v=3/medi-vitals-upload.png?v=4/g' project-medi-matrix.html
+          sed -i 's/medi-monitoring.png?v=3/medi-monitoring.png?v=4/g' project-medi-matrix.html
+          sed -i 's/medi-red-triage.png?v=3/medi-red-triage.png?v=4/g' project-medi-matrix.html
+          sed -i 's/medi-code-red-handoff.png?v=3/medi-code-red-handoff.png?v=4/g' project-medi-matrix.html
+          git rm .github/workflows/capture-current-medi-production.yml
 
-      - name: Capture current production UI
-        env:
-          E2E_URL: https://medi-matrix.vercel.app
-        run: |
-          node <<'NODE'
-          const fs = require('fs');
-          const path = require('path');
-          const { chromium } = require('playwright');
-
-          (async () => {
-            const out = path.resolve('assets/medi');
-            fs.mkdirSync(out, { recursive: true });
-            const browser = await chromium.launch({ headless: true });
-            const context = await browser.newContext({
-              viewport: { width: 1600, height: 900 },
-              deviceScaleFactor: 1,
-              geolocation: { latitude: 37.5665, longitude: 126.9780 },
-              permissions: ['geolocation'],
-            });
-            const page = await context.newPage();
-
-            try {
-              await page.goto(process.env.E2E_URL, { waitUntil: 'domcontentloaded', timeout: 120000 });
-              await page.waitForTimeout(1200);
-
-              const demoButton = page.getByTestId('demo-case-button');
-              await demoButton.waitFor({ state: 'attached', timeout: 60000 });
-              const details = demoButton.locator('xpath=ancestor::details');
-              if (await details.count()) {
-                await details.evaluate((el) => { el.open = true; });
-              }
-              await demoButton.waitFor({ state: 'visible', timeout: 60000 });
-              await demoButton.click();
-
-              const riskPanel = page.getByTestId('ai-risk-panel');
-              await riskPanel.waitFor({ state: 'visible', timeout: 120000 });
-              await page.waitForTimeout(1600);
-
-              // Current compact first-screen state after the sample Case is running.
-              await page.screenshot({ path: path.join(out, 'medi-vitals-upload.png'), fullPage: false });
-
-              // Current Vision demo panel.
-              const canvas = page.locator('canvas').first();
-              await canvas.waitFor({ state: 'visible', timeout: 60000 });
-              const canvasParent = canvas.locator('xpath=..');
-              await canvasParent.screenshot({ path: path.join(out, 'medi-viewer-3d.png') });
-
-              // Current model-backed Vitals AI provenance card.
-              await riskPanel.screenshot({ path: path.join(out, 'medi-monitoring.png') });
-
-              // Wait for the severe sample to reach an actionable RED state; allow YELLOW fallback only if production timing differs.
-              let triageButton = page.getByRole('button', { name: /RED.*병원 탐색/ }).first();
-              try {
-                await triageButton.waitFor({ state: 'visible', timeout: 120000 });
-              } catch {
-                triageButton = page.getByRole('button', { name: /YELLOW.*병원.*(확인|탐색)/ }).first();
-                await triageButton.waitFor({ state: 'visible', timeout: 30000 });
-              }
-
-              await triageButton.scrollIntoViewIfNeeded();
-              await page.screenshot({ path: path.join(out, 'medi-red-triage.png'), fullPage: false });
-              await triageButton.click();
-
-              const dashboard = page.locator('[data-triage-flow-version="live-triage-shell-v4"]');
-              await dashboard.waitFor({ state: 'visible', timeout: 30000 });
-              await page.getByTestId('transfer-resource-requirements').waitFor({ state: 'visible', timeout: 30000 });
-              await dashboard.screenshot({ path: path.join(out, 'medi-code-red-handoff.png') });
-
-              fs.writeFileSync(path.join(out, 'capture-current-manifest.txt'), [
-                'CURRENT_MEDI_PRODUCTION_CAPTURE_PASS',
-                `source=${process.env.E2E_URL}`,
-                `captured_at=${new Date().toISOString()}`,
-                'viewport=1600x900',
-              ].join('\n') + '\n');
-            } finally {
-              await context.close();
-              await browser.close();
-            }
-          })().catch((error) => {
-            console.error(error);
-            process.exit(1);
-          });
-          NODE
-
-      - name: Commit refreshed evidence captures
+      - name: Commit final capture wiring
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/medi/medi-viewer-3d.png assets/medi/medi-vitals-upload.png assets/medi/medi-monitoring.png assets/medi/medi-red-triage.png assets/medi/medi-code-red-handoff.png assets/medi/capture-current-manifest.txt
-          if git diff --cached --quiet; then
-            echo "No screenshot changes"
-            exit 0
-          fi
-          git commit -m "chore: refresh Medi-Matrix production screenshots"
+          git add project-medi-matrix.html
+          git commit -m "chore: wire current Medi-Matrix production captures"
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
