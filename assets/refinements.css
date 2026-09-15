@@ -360,3 +360,24 @@
   .algo-output-grid { grid-template-columns:minmax(0,1fr); gap:22px; }
   .algo-output-grid .case-shot img { max-height:420px; }
 }
+
+/* Dense multi-panel figures: keep them legible on narrow screens by
+   scrolling horizontally instead of shrinking past readability. */
+@media (max-width:720px) {
+  /* The section's grid item defaults to min-width:auto, so a wide child
+     would stretch it past the viewport instead of scrolling inside it. */
+  .case-section > div:has(.case-shot-wide) { min-width:0; }
+  .case-shot-wide,
+  .case-shot-wide .shot-scroll { min-width:0; max-width:100%; }
+  .case-shot-wide .shot-scroll {
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border:1px solid var(--line-paper);
+  }
+  .case-shot-wide .shot-scroll img { min-width:660px; border:0; }
+  .case-shot-wide figcaption::after {
+    content:'좌우로 밀어서 보기';
+    color:var(--accent-deep);
+    white-space:nowrap;
+  }
+}
