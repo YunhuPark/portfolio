@@ -14,7 +14,7 @@
   <title>Algo Pipeline — Park Yunhu</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css?v=10">
-  <link rel="stylesheet" href="assets/refinements.css?v=10">
+  <link rel="stylesheet" href="assets/refinements.css?v=11">
   <script defer src="assets/site.js?v=13"></script>
 </head>
 <body class="case-body">
@@ -57,6 +57,8 @@
       <section class="case-section"><span class="label">Decision</span><div><h2>오류를 숨기지 않고 명시적인 실패 상태로 남겼습니다.</h2><h3>Deterministic Gate</h3><p>숫자 근거, 필수 필드, schema·lineage 불일치처럼 명확히 판정할 수 있는 오류는 코드로 차단합니다.</p><h3>Semantic Critic</h3><p>문맥 왜곡이나 근거와 표현 사이의 의미 차이는 의미 기반 검증 단계에서 다시 확인합니다.</p><h3>Fail-closed publish boundary</h3><p>계정 불일치, 자격증명 오류, 공개 이미지 URL 미설정, 불확실한 원격 게시 상태에서는 Queue를 소모하거나 자동 재시도하지 않습니다.</p></div></section>
 
       <section class="case-section"><span class="label">Evidence</span><div><h2>현재 main 기준으로 운영 경계를 증명합니다.</h2><div class="case-metrics"><div class="case-metric"><strong>198</strong><small>Instagram 인증 하드닝 병합 시 전체 테스트</small></div><div class="case-metric"><strong>0</strong><small>해당 검증에서 production DB write</small></div><div class="case-metric"><strong>BLOCKED</strong><small>근거 없는 숫자 Claim</small></div><div class="case-metric"><strong>OFF</strong><small>기본 unattended auto-publish</small></div></div><div class="case-note"><strong>현재 기준.</strong> 초기 Quality Hardening PR #1은 이미 main에 병합됐고 이후 staged rollout, Windows test hardening, public image delivery guard, Instagram Login credential hardening까지 추가 병합됐습니다. 실제 무인 게시 활성화는 별도 운영 승인 경계로 남겨 두었습니다.</div></div></section>
+
+      <section class="case-section"><span class="label">Output</span><div><h2>파이프라인이 실제로 만들어낸 결과물입니다.</h2><p>아래 두 장은 2026-09-15 실행에서 생성된 실제 카드뉴스입니다. 원문 기사를 수집해 주제를 잡고, 각 Claim을 근거에 연결한 뒤 렌더링까지 자동으로 수행했습니다.</p><div class="algo-output-grid"><figure class="case-shot"><img src="assets/algo/algo-card-cover.jpg?v=1" width="720" height="900" class="zoomable-image" loading="lazy" decoding="async" alt="Algo Pipeline이 생성한 카드뉴스 커버. 제목 &quot;AI 속도 조절, 협약인가&quot;와 발행일 2026.09.15가 표시된 실제 출력물" tabindex="0" role="button" aria-label="Algo Pipeline이 생성한 카드뉴스 커버 확대 보기"><figcaption><span>01 / 수집된 원문 → 생성된 커버</span><strong>Generated</strong></figcaption></figure><figure class="case-shot"><img src="assets/algo/algo-card-evidence.png?v=1" width="720" height="900" class="zoomable-image" loading="lazy" decoding="async" alt="Algo Pipeline이 생성한 콘텐츠 카드. &quot;근거로 확인된 내용&quot; 라벨 아래 검증된 Claim이 표시된 실제 출력물" tabindex="0" role="button" aria-label="Algo Pipeline이 생성한 콘텐츠 카드 확대 보기"><figcaption><span>02 / Claim → 근거로 확인된 내용</span><strong>Fact-checked</strong></figcaption></figure></div><div class="case-note"><strong>이 실행의 기록.</strong> 원문은 The Verge <i>“Is Big Tech’s AI slowdown a safety pact or a cartel?”</i>이며, <code>fact_confirmed 4 · disputed 0 · unverifiable 0</code>, <code>source_lineage_sha256</code> 기록, <code>publish_requested=false</code>로 남았습니다. 생성은 성공했지만 자동 게시는 기본 OFF 경계에서 멈춘 상태입니다.</div></div></section>
 
       <section class="case-section"><span class="label">Active experiment</span><div><h2>다음 단계는 생성량이 아니라 품질 폐루프입니다.</h2><p>현재 Draft PR #7에서는 근거 기반 생성 → 사람 편집·승인 → 48시간 성과 snapshot → 주간 품질 회고 → 승인 대기 실험 제안으로 이어지는 closed-loop 품질 개선을 검증 중입니다.</p><div class="case-note">이 기능은 아직 Draft이므로 main의 완료 기능처럼 표현하지 않습니다. 최신 PR CI는 통과했지만, 실제 카드뉴스 샘플의 시각 검토 후 병합 여부를 판단하도록 경계를 유지합니다.</div><div class="case-links"><a class="text-link" href="https://github.com/YunhuPark/algo-pipeline/pull/7" target="_blank" rel="noopener noreferrer">Active Draft PR #7 ↗</a></div></div></section>
 

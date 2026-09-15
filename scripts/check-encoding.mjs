@@ -30,7 +30,7 @@ check(content.includes('github.com/YunhuPark/Medi-Matrix'), 'Missing GitHub repo
 check(content.includes('golden-time.vercel.app'), 'Missing golden-time.vercel.app link');
 
 // 4. Check specific Korean text as a UTF-8 integrity smoke test.
-check(content.includes('의료 AI에서는 구현 범위를 정확히 말하는 것도 품질입니다.'), 'Missing or corrupted required Korean text');
+check(content.includes('의료 AI에서는 모델 성능과 제품 경계를 함께 보여줘야 합니다.'), 'Missing or corrupted required Korean text');
 check(content.includes('의료영상'), 'Missing or corrupted "의료영상"');
 check(content.includes('생체신호'), 'Missing or corrupted "생체신호"');
 check(content.includes('합성 데이터'), 'Missing or corrupted "합성 데이터"');
