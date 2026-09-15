@@ -404,3 +404,14 @@
 }
 
 .row-thumb { display:none; }
+
+/* Note under an external link whose target needs a caveat.
+   Scoped to .case-section so it outranks `.case-section p`. */
+.case-section p.link-note {
+  margin:14px 0 0;
+  max-width:62ch;
+  color:var(--muted-paper);
+  font-size:12px;
+  line-height:1.6;
+}
+.case-section p.link-note em { font-style:normal; color:var(--accent-deep); }
