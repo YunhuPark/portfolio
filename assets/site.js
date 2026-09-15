@@ -33,6 +33,8 @@
   const evidenceNode = document.querySelector('[data-preview-evidence]');
   const sceneTitleNode = document.querySelector('[data-scene-title]');
   const sceneLabelNode = document.querySelector('[data-scene-label]');
+  const shotNode = document.querySelector('[data-preview-shot]');
+  const shotCaptionNode = document.querySelector('[data-preview-caption]');
 
   const previewContent = {
     algo: {
@@ -41,7 +43,10 @@
       question: 'LLM 자동화를 어떻게 검증·승인·발행 경계 안에서 운영할 것인가?',
       evidence: '198 tests · Fact Checker V2 · Queue Lineage V2 · auto-publish OFF',
       title: 'ALGO PIPELINE',
-      label: 'VERIFY / REVIEW'
+      label: 'VERIFY / REVIEW',
+      shot: 'assets/thumbs/thumb-algo.jpg?v=1',
+      shotAlt: 'Algo Pipeline이 생성한 카드뉴스 커버 실제 출력물',
+      shotCaption: '실제 생성된 카드뉴스 · 2026-09-15 실행'
     },
     medi: {
       status: 'VITALS MODEL / VISION DEMO',
@@ -49,7 +54,10 @@
       question: '영상·Vitals 신호를 어떻게 안전한 전원 후보 탐색으로 연결할 것인가?',
       evidence: 'GRU AUROC .795 · Utility .345 · Production E2E · Vision demo',
       title: 'MEDI-MATRIX',
-      label: 'RISK / TRANSFER'
+      label: 'RISK / TRANSFER',
+      shot: 'assets/thumbs/thumb-medi.jpg?v=1',
+      shotAlt: 'Medi-Matrix Production 화면. 3D 병변 메시와 RED Triage 판정',
+      shotCaption: 'Production 샘플 Case · Triage RED · clinical_use=false'
     },
     insight: {
       status: 'CAUSAL ANALYSIS',
@@ -57,7 +65,10 @@
       question: '공포 제목의 효과인가, 채널 규모의 착시인가?',
       evidence: '3,713 videos · PSM 0.63× · DiD +3.4% (n.s.)',
       title: 'MEDICAL INSIGHT',
-      label: 'NAIVE → CONTROLLED'
+      label: 'NAIVE → CONTROLLED',
+      shot: 'assets/thumbs/thumb-insight.jpg?v=1',
+      shotAlt: 'PSM 분석 그래프. 채널 규모 균형 0.210→0.084, ATT 0.63배',
+      shotCaption: 'PSM · ATT 0.63배 · 95%CI [0.44, 0.85]'
     }
   };
 
@@ -72,6 +83,11 @@
     if (evidenceNode) evidenceNode.textContent = content.evidence;
     if (sceneTitleNode) sceneTitleNode.textContent = content.title;
     if (sceneLabelNode) sceneLabelNode.textContent = content.label;
+    if (shotNode && content.shot && shotNode.getAttribute('src') !== content.shot) {
+      shotNode.setAttribute('src', content.shot);
+      shotNode.setAttribute('alt', content.shotAlt);
+    }
+    if (shotCaptionNode && content.shotCaption) shotCaptionNode.textContent = content.shotCaption;
     if (window.Portfolio3D) window.Portfolio3D.setWorkMode(key);
   }
 
