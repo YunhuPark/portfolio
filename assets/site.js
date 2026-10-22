@@ -35,9 +35,27 @@
   const sceneLabelNode = document.querySelector('[data-scene-label]');
 
   const previewContent = {
+    devorch: {
+      status: 'GATED BY DIFF SHA',
+      number: '01 / 05',
+      question: 'AI 에이전트가 쓴 코드를, 사람이 승인하지 않으면 반영되지 않게 만들 수 있는가?',
+      evidence: 'MCP 8 tools · gated by diff SHA · 660 tests · 4/4 agent runs',
+      title: 'DEVORCH',
+      label: 'REVIEW / APPROVE',
+      scene: 'algo'
+    },
+    topic: {
+      status: 'ADOPTED AT OJT',
+      number: '02 / 05',
+      question: '흩어진 사내 문서를 검색창 하나로, 권한대로만 찾을 수 있는가?',
+      evidence: '5 sources · 5 doc formats · permission-filtered · adopted in 3 days',
+      title: 'TOPIC THREAD AI',
+      label: 'PARSE / RETRIEVE',
+      scene: 'algo'
+    },
     algo: {
       status: 'HARDENED MAIN',
-      number: '01 / 03',
+      number: '03 / 05',
       question: 'LLM 자동화를 어떻게 검증·승인·발행 경계 안에서 운영할 것인가?',
       evidence: '198 tests · Fact Checker V2 · Queue Lineage V2 · auto-publish OFF',
       title: 'ALGO PIPELINE',
@@ -45,7 +63,7 @@
     },
     medi: {
       status: 'VITALS MODEL / VISION DEMO',
-      number: '02 / 03',
+      number: '04 / 05',
       question: '영상·Vitals 신호를 어떻게 안전한 전원 후보 탐색으로 연결할 것인가?',
       evidence: 'GRU AUROC .795 · Utility .345 · Production E2E · Vision demo',
       title: 'MEDI-MATRIX',
@@ -53,7 +71,7 @@
     },
     insight: {
       status: 'CAUSAL ANALYSIS',
-      number: '03 / 03',
+      number: '05 / 05',
       question: '공포 제목의 효과인가, 채널 규모의 착시인가?',
       evidence: '3,713 videos · PSM 0.63× · DiD +3.4% (n.s.)',
       title: 'MEDICAL INSIGHT',
@@ -72,7 +90,7 @@
     if (evidenceNode) evidenceNode.textContent = content.evidence;
     if (sceneTitleNode) sceneTitleNode.textContent = content.title;
     if (sceneLabelNode) sceneLabelNode.textContent = content.label;
-    if (window.Portfolio3D) window.Portfolio3D.setWorkMode(key);
+    if (window.Portfolio3D) window.Portfolio3D.setWorkMode(content.scene || key);
   }
 
   rows.forEach((row) => {
@@ -82,7 +100,7 @@
     row.addEventListener('touchstart', () => activateProject(key), { passive: true });
   });
 
-  if (rows.length) activateProject(rows[0].dataset.project || 'algo');
+  if (rows.length) activateProject(rows[0].dataset.project || 'devorch');
 })();
 
 // Lightbox Implementation
