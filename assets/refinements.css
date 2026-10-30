@@ -385,3 +385,19 @@
   line-height:1.6;
 }
 .case-section p.link-note em { font-style:normal; color:var(--accent-deep); }
+
+/* At-a-glance summary: plain-text overview placed before the evidence section. */
+.glance-body { max-width: 78ch; }
+.glance-body h2 {
+  margin: 0 0 20px;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+.glance-body p { margin: 0 0 18px; color: var(--muted-paper); line-height: 1.75; }
+.glance-body ul { margin: 22px 0; padding: 0; list-style: none; border-top: 1px solid var(--line-paper); }
+.glance-body li { padding: 14px 0; border-bottom: 1px solid var(--line-paper); line-height: 1.65; }
+.glance-body li a { color: var(--ink); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--accent); }
+.glance-body .glance-stack { font-size: 13px; }
+.glance-section { padding: 56px var(--pad) 72px; }
+.glance-section .glance-body { margin-top: 44px; }

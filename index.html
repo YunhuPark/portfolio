@@ -22,7 +22,7 @@
   <title>박윤후 | AI Engineer Portfolio</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css?v=12">
-  <link rel="stylesheet" href="assets/refinements.css?v=15">
+  <link rel="stylesheet" href="assets/refinements.css?v=16">
   <link rel="stylesheet" href="assets/impact.css?v=1">
   <script defer src="assets/spline-config.js?v=9"></script>
   <script defer src="assets/reliability-core.js?v=9"></script>
@@ -67,6 +67,20 @@
       </div>
     </section>
 
+    <section id="glance" class="glance-section paper-section" aria-labelledby="glance-title">
+      <div class="section-index"><span>00</span><span>AT A GLANCE</span></div>
+      <div class="glance-body">
+        <h2 id="glance-title">한눈에 보기</h2>
+        <p>AI 엔지니어 박윤후입니다. LLM 에이전트가 근거 없이 움직이지 않도록 검증·승인·실패 처리를 설계하고, 데이터 분석은 상관에서 멈추지 않고 인과추론으로 확인합니다. 아래 수치는 저장소와 사례 페이지에서 확인할 수 있고, 잘 안 된 부분과 측정하지 못한 것도 함께 적었습니다.</p>
+        <ul>
+          <li><a href="/project-devorch">DevOrch</a> — 에이전트가 쓴 코드는 사람이 승인해야 반영됩니다. 실제 Claude Code 작업 4건이 모두 게이트를 통과했고, 실제 결함 탐지는 12개 중 5개입니다.</li>
+          <li><a href="/project-algo">Algo Pipeline</a> — 근거에 연결된 주장만 발행합니다. 자동 발행은 기본 OFF이고, 테스트는 158개에서 198개로 늘었습니다.</li>
+          <li><a href="/project-medical-insight">Medical Insight Lab</a> — 3,713개 영상으로 "공포 제목이 조회수를 높인다"는 통념을 PSM·DiD로 검증했습니다(PSM 0.63배).</li>
+        </ul>
+        <p class="glance-stack">Stack · Python, TypeScript, FastAPI, Next.js, React, PyTorch, scikit-learn, statsmodels, LangChain, Chroma, MCP, OpenAI·Anthropic·Gemini API, SQLite, Docker, GitHub Actions</p>
+      </div>
+    </section>
+
     <section id="impact" class="impact-section paper-section" aria-labelledby="impact-title">
       <div class="section-index"><span>01</span><span>VERIFIED IMPACT</span></div>
       <div class="impact-intro">
@@ -81,7 +95,7 @@
         <a class="impact-row" href="/project-devorch">
           <div class="impact-label"><span>01 / AGENT CONTROL</span><b>DevOrch</b><small>MCP control plane</small></div>
           <div class="impact-number"><strong>4/4</strong><small>gated agent runs</small></div>
-          <div class="impact-detail"><p>실제 Claude Code가 작업 4건 모두 분석→리뷰→테스트→커밋 게이트를 따라 진행했습니다. 그중 <strong>분류가 놓친 발행 큐 변경</strong>을 찾아, 보호 경로를 추가한 뒤 같은 diff를 재현하자 LOW→HIGH로 올라가 사람 승인에서 멈췄습니다.</p><span class="impact-note">660 tests · 10 CI jobs (3 OS) · real-defect detection measured 5/12</span></div>
+          <div class="impact-detail"><p>실제 Claude Code가 작업 4건 모두 분석→리뷰→테스트→커밋 게이트를 따라 진행했습니다. 그중 <strong>분류가 놓친 발행 큐 변경</strong>을 찾아, 보호 경로를 추가한 뒤 같은 diff를 재현하자 LOW→HIGH로 올라가 사람 승인에서 멈췄습니다.</p><span class="impact-note">734 tests · CI on 3 OS · real-defect detection measured 5/12</span></div>
           <span class="impact-arrow" aria-hidden="true">↗</span>
         </a>
 
@@ -127,7 +141,7 @@
       <div class="work-heading"><h2 id="work-title">다섯 개의 대표 사례,<br>하나의 엔지니어링 원칙.</h2><p>서로 다른 문제를 다루지만, 결과를 그대로 보여주는 데서 끝나지 않고 검증·보안·운영 경계를 함께 설계했습니다.</p></div>
       <div class="work-layout">
         <div class="project-index" role="list" aria-label="대표 프로젝트">
-          <a class="project-row is-active" role="listitem" href="/project-devorch" data-project="devorch"><span class="project-no">01</span><span class="project-copy"><strong>DevOrch</strong><small>Agent Control Plane · MCP</small><span class="project-evidence">MCP 8 tools · gated by diff SHA · 660 tests · 4/4 agent runs</span></span><span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span></a>
+          <a class="project-row is-active" role="listitem" href="/project-devorch" data-project="devorch"><span class="project-no">01</span><span class="project-copy"><strong>DevOrch</strong><small>Agent Control Plane · MCP</small><span class="project-evidence">MCP 8 tools · gated by diff SHA · 734 tests · 4/4 agent runs</span></span><span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span></a>
           <a class="project-row" role="listitem" href="/project-topic-thread" data-project="topic"><span class="project-no">02</span><span class="project-copy"><strong>Topic Thread AI</strong><small>Enterprise RAG Search · ESTsoft OJT</small><span class="project-evidence">5 sources · 5 doc formats · permission-filtered · adopted in 3 days</span></span><span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span></a>
           <a class="project-row" role="listitem" href="/project-algo" data-project="algo"><span class="project-no">03</span><span class="project-copy"><strong>Algo Pipeline</strong><small>Evidence-bound Content Agent · Reliability</small><span class="project-evidence">198 tests · Fact Checker V2 · Queue Lineage V2 · auto-publish OFF</span></span><span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span></a>
           <a class="project-row" role="listitem" href="/project-medi-matrix" data-project="medi"><span class="project-no">04</span><span class="project-copy"><strong>Medi-Matrix</strong><small>Vitals AI · Transfer Decision Support</small><span class="project-evidence">GRU AUROC .795 · Utility .345 · Production E2E · Vision demo</span></span><span class="project-year">2026</span><span class="project-arrow" aria-hidden="true">↗</span></a>
@@ -136,7 +150,7 @@
         <aside class="project-preview project-preview-3d" aria-live="polite">
           <div class="preview-topline"><span data-preview-status>GATED BY DIFF SHA</span><span data-preview-number>01 / 05</span></div>
           <div class="work-scene-wrap"><canvas id="work-core" class="scene-canvas work-scene-canvas" aria-label="선택한 프로젝트를 추상화한 3D 시각화"></canvas><div class="work-scene-fallback" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div class="work-scene-title"><small data-scene-label>REVIEW / APPROVE</small><strong data-scene-title>DEVORCH</strong></div></div>
-          <div class="preview-footer"><div><small>QUESTION</small><p data-preview-question>AI 에이전트가 쓴 코드를, 사람이 승인하지 않으면 반영되지 않게 만들 수 있는가?</p></div><div><small>EVIDENCE</small><p data-preview-evidence>MCP 8 tools · gated by diff SHA · 660 tests · 4/4 agent runs</p></div></div>
+          <div class="preview-footer"><div><small>QUESTION</small><p data-preview-question>AI 에이전트가 쓴 코드를, 사람이 승인하지 않으면 반영되지 않게 만들 수 있는가?</p></div><div><small>EVIDENCE</small><p data-preview-evidence>MCP 8 tools · gated by diff SHA · 734 tests · 4/4 agent runs</p></div></div>
         </aside>
       </div>
     </section>
@@ -157,7 +171,7 @@
       <div class="section-index"><span>05</span><span>RESEARCH &amp; ADDITIONAL WORK</span></div>
       <h2 id="additional-title">Related research<br>&amp; independent products.</h2>
       <p class="additional-intro">모델 연구, 멀티모달 시스템, 응급의료 탐색 제품을 각각의 구현 범위로 구분하면서 실제 연결 지점도 함께 보여줍니다.</p>
-      <div class="additional-list"><a href="https://github.com/YunhuPark/yt-growth-coach" target="_blank" rel="noopener noreferrer"><span>YT Growth Coach</span><small>내 쇼츠 채널(구독자 약 4천 명) 데이터로 진단·AI 자동 편집·성과 추적 · AI가 매긴 쇼츠 점수를 실제 7일 성과와 순위 상관으로 비교하는 검증 기능 구현, 표본이 쌓이는 중</small><b>PERSONAL TOOL ↗</b></a><a href="/project-imst-mamba"><span>IMST-Mamba</span><small>독립 시계열 연구 · Medi-Matrix와는 별도 연구 프로젝트로 비교·Ablation 근거를 제공</small><b>RELATED RESEARCH ↗</b></a><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer"><span>Golden-Time</span><small>독립 응급의료 탐색 서비스 · Medi-Matrix의 transfer_resources_v1 자원 조건을 받아 후보 탐색/랭킹에 반영</small><b>LIVE PRODUCT ↗</b></a><a href="https://github.com/YunhuPark/EST_Mareungil_21" target="_blank" rel="noopener noreferrer"><span>마른길</span><small>팀 모델 상승전이 Recall 0.731 · 나의 기여: SafeRoute 계약, no_safe_route, fallback 정책 · 일부 Fixture 기반</small><b>TEAM PROJECT ↗</b></a></div>
+      <div class="additional-list"><a href="/project-yt-growth-coach"><span>YT Growth Coach</span><small>내 쇼츠 채널(구독자 약 4천 명) 데이터로 진단·AI 자동 편집·성과 추적 · AI가 매긴 쇼츠 점수를 실제 7일 성과와 순위 상관으로 비교하는 검증 기능 구현, 표본이 쌓이는 중</small><b>PERSONAL TOOL ↗</b></a><a href="/project-imst-mamba"><span>IMST-Mamba</span><small>독립 시계열 연구 · Medi-Matrix와는 별도 연구 프로젝트로 비교·Ablation 근거를 제공</small><b>RELATED RESEARCH ↗</b></a><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer"><span>Golden-Time</span><small>독립 응급의료 탐색 서비스 · Medi-Matrix의 transfer_resources_v1 자원 조건을 받아 후보 탐색/랭킹에 반영</small><b>LIVE PRODUCT ↗</b></a><a href="https://github.com/YunhuPark/EST_Mareungil_21" target="_blank" rel="noopener noreferrer"><span>마른길</span><small>팀 모델 상승전이 Recall 0.731 · 나의 기여: SafeRoute 계약, no_safe_route, fallback 정책 · 일부 Fixture 기반</small><b>TEAM PROJECT ↗</b></a></div>
     </section>
 
     <section class="contact-section dark-section" aria-labelledby="contact-title">
