@@ -6,7 +6,7 @@
   <meta name="description" content="Medical Insight Lab case study — 의료 유튜브 공포 소구를 PSM, Fixed Effects, DiD와 robustness checks로 재검증한 인과분석 프로젝트">
   <meta name="theme-color" content="#11110f">
   <meta property="og:title" content="Medical Insight Lab — Park Yunhu">
-  <meta property="og:description" content="단순 비교 0.78×에서 PSM 0.63×까지, 교란을 단계적으로 통제하며 방향이 유지되는지 검증한 causal analysis case study.">
+  <meta property="og:description" content="단순 비교 0.78×에서 PSM 0.65×까지, 교란을 단계적으로 통제하며 방향이 유지되는지 검증한 causal analysis case study.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://park-yunhu-portfolio.vercel.app/project-medical-insight">
   <meta name="twitter:card" content="summary">
@@ -92,19 +92,19 @@
               <div class="analysis-compare">
                 <p><span>NAIVE</span><b class="negative" style="--size:100%"></b><strong>0.78×</strong></p>
                 <p><span>AGE ADJ.</span><b class="negative" style="--size:71%"></b><strong>0.56×</strong></p>
-                <p><span>PSM</span><b class="negative" style="--size:81%"></b><strong>0.63×</strong></p>
+                <p><span>PSM</span><b class="negative" style="--size:83%"></b><strong>0.65×</strong></p>
               </div>
               <blockquote>세 방법이 같은 방향을 가리키는지가 관건이었습니다.</blockquote>
             </div>
           </div>
           <ul>
             <li>영상 나이를 보정하자(VPD) 0.56배로 오히려 강해짐 (p&lt;.001)</li>
-            <li>PSM에서 채널 규모까지 통제한 뒤에도 0.63배로 유지 (p=.019)</li>
+            <li>PSM에서 채널 규모까지 통제한 뒤에도 0.65배로 유지 (95% CI 0.45–0.90, Wilcoxon p=.036)</li>
             <li>채널 고정효과에서는 같은 채널 내부 효과가 유의하지 않음</li>
             <li>Medical Pro 채널 하위집단에서는 0.83배의 감소 방향</li>
             <li>pre-COVID 표본을 보완한 DiD에서는 +3.4%, 비유의로 수렴해 초기 큰 효과 추정이 표본 부족에 민감했음을 확인</li>
           </ul>
-          <figure class="case-shot case-shot-wide"><div class="shot-scroll"><img src="assets/insight/insight-psm.png?v=1" width="1600" height="547" class="zoomable-image" loading="lazy" decoding="async" alt="성향점수매칭 3패널 그래프. 성향 점수 분포의 공통 지지 구간, 채널 규모 균형이 매칭 전 0.210에서 후 0.084로 개선, 매칭 후 조회수 비교에서 ATT 0.63배 95% CI 0.44에서 0.85" tabindex="0" role="button" aria-label="성향점수매칭 분석 그래프 확대 보기"></div><figcaption><span>PSM · 채널 규모 통제 후 공포 키워드 효과</span><strong>ATT 0.63× · p=.0185</strong></figcaption></figure>
+          <figure class="case-shot case-shot-wide"><div class="shot-scroll"><img src="assets/insight/insight-psm.png?v=2" width="1600" height="547" class="zoomable-image" loading="lazy" decoding="async" alt="성향점수매칭 3패널 그래프. 성향 점수 분포의 공통 지지 구간, 채널 규모 균형이 매칭 전 0.104에서 후 0.037로 개선, 매칭 후 조회수 비교에서 ATT 0.65배 95% CI 0.45에서 0.90" tabindex="0" role="button" aria-label="성향점수매칭 분석 그래프 확대 보기"></div><figcaption><span>PSM · 채널 규모 통제 후 공포 키워드 효과</span><strong>ATT 0.65× · p=.036</strong></figcaption></figure>
           <figure class="case-shot case-shot-wide"><div class="shot-scroll"><img src="assets/insight/insight-did.png?v=1" width="1600" height="977" class="zoomable-image" loading="lazy" decoding="async" alt="COVID-19 자연실험 6패널 그래프. 좌하단 Difference-in-Differences 패널에서 DiD +0.0335, 즉 +3.4%이며 Bootstrap 95% CI는 -20.8%에서 +34.7%로 0을 포함" tabindex="0" role="button" aria-label="COVID-19 자연실험 DiD 그래프 확대 보기"></div><figcaption><span>DiD · COVID-19 전후 자연실험</span><strong>+3.4% · CI가 0을 포함</strong></figcaption></figure>
           <div class="case-note"><strong>CI를 함께 봅니다.</strong> DiD 점추정은 +3.4%지만 Bootstrap 95% CI가 <code>[−20.8%, +34.7%]</code>로 0을 넉넉히 포함합니다. 방향을 주장할 수 없는 구간이므로 “효과 없음”이 아니라 “이 표본으로는 판정 불가”로 남겼습니다.</div>
         </div>
@@ -116,7 +116,8 @@
           <h2>결론뿐 아니라 비교 방식 자체도 다시 검증했습니다.</h2>
           <ul>
             <li>PSM 매칭을 logit-scale caliper(0.2 × SD of logit propensity score)로 보강</li>
-            <li>주요 공변량의 매칭 전후 SMD를 확인해 balance를 수치로 점검 — 채널 규모 표준화 차이가 매칭 전 0.210에서 매칭 후 0.084로 줄어, 통상 기준선 0.1 아래로 내려온 뒤에 효과를 추정했습니다</li>
+            <li>주요 공변량의 매칭 전후 SMD를 재계산해 balance를 수치로 점검 — 채널 규모 0.104→0.037, 영상 나이 0.229→0.013, 제목 길이 0.126→0.035로 기준선 0.1 아래가 됐습니다. 다만 제목의 숫자 포함 여부는 0.037→0.106으로 오히려 기준선을 소폭 넘어 남았습니다</li>
+            <li>성향점수 추정 구현(scikit-learn → numpy)을 바꿔 다시 돌리면 방향은 같지만 배율이 0.65배에서 0.71배로, Wilcoxon p가 .036에서 .068로 달라져, PSM 추정치는 구현에 민감함을 확인했습니다</li>
             <li>선험적 공포 키워드 목록을 TF-IDF 기반 데이터 검증으로 보완하고, 시간 변화 추적을 위한 panel snapshot collector 추가</li>
           </ul>
         </div>

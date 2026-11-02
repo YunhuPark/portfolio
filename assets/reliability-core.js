@@ -424,7 +424,7 @@
       const bars = [
         { x: -0.8, height: 1.65, label: '2.1x', accent: true },
         { x: 0, height: 0.82, label: '1.0x', accent: false },
-        { x: 0.8, height: 0.52, label: '0.63x', accent: false }
+        { x: 0.8, height: 0.53, label: '0.65x', accent: false }
       ];
       const baseLine = [-1.35, 1.35].map((x) => this.project(rotatePoint({ x, y: 0.9, z: 0 }, rotation.x, rotation.y, rotation.z), scale));
       this.drawPolyline(baseLine, 'rgba(255,253,248,.2)', 1);

@@ -73,7 +73,7 @@
       status: 'CAUSAL ANALYSIS',
       number: '05 / 05',
       question: '공포 제목의 효과인가, 채널 규모의 착시인가?',
-      evidence: '3,713 videos · PSM 0.63× · DiD +3.4% (n.s.)',
+      evidence: '3,713 videos · PSM 0.65× · DiD +3.4% (n.s.)',
       title: 'MEDICAL INSIGHT',
       label: 'NAIVE → CONTROLLED'
     }
