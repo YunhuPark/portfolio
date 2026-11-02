@@ -134,6 +134,8 @@
         <article class="ecosystem-node planned-node"><div class="node-meta"><span>03 / ACTION</span><b>CONNECTED PRODUCT</b></div><h3>Golden-Time</h3><p>독립 응급의료 탐색 서비스로, 전달받은 자원 조건을 E-Gen 기반 후보 탐색과 랭킹에 반영합니다.</p><a href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Live product ↗</a></article>
       </div></div></section>
 
+      <section class="case-section"><span class="label">Troubleshooting</span><div><h2>데모 결과가 실제 모델 결과처럼 보이는 문제를 막았습니다.</h2><h3>데모와 실제 모델의 구분</h3><p><strong>증상</strong> 공개 배포에서 Vision은 합성 데모이고 Vitals는 실제 GRU인데, 화면에서는 같은 수준의 결과로 보였습니다. <strong>해결</strong> 추론 출처(provenance)를 분리해 화면에 표시하고, 모델 모드에서는 근거 없는 ARDS·shock 확률을 만들어 내지 않게 막았습니다.</p><h3>실시간 triage 변화 중 응급 모달</h3><p><strong>증상</strong> 실시간 triage 문구가 바뀔 때 열어 둔 CODE RED 모달의 상태 표시가 흔들리거나 닫혔습니다. <strong>해결</strong> 모달 수명주기를 부모 컴포넌트가 제어하게 바꾸고, RED 에피소드가 끝났을 때만 닫히게 했습니다.</p></div></section>
+
       <section class="case-section"><span class="label">Learning</span><div><h2>의료 AI에서는 모델 성능과 제품 경계를 함께 보여줘야 합니다.</h2><p>Vision demo, 실제 Vitals model, 비임상 Triage 정책, 병원 후보 탐색을 각각 검증 가능한 수준으로 분리하면서도, 실제 서비스 화면은 숨기지 않고 증거로 함께 보여주는 방향으로 정리했습니다.</p><div class="case-links"><a class="text-link" href="https://medi-matrix.vercel.app" target="_blank" rel="noopener noreferrer">Medi-Matrix live demo ↗</a><a class="text-link" href="https://github.com/YunhuPark/Medi-Matrix" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a><a class="text-link" href="https://golden-time.vercel.app" target="_blank" rel="noopener noreferrer">Golden-Time live product ↗</a></div></div></section>
     </section>
 
