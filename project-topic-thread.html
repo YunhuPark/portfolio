@@ -38,7 +38,7 @@
       </div>
       <div class="case-hero-meta">
         <div><small>TYPE</small><span>ESTsoft OJT · Team of 3</span></div>
-        <div><small>ROLE</small><span>Frontend design + core AI (full-stack, solo)</span></div>
+        <div><small>ROLE</small><span>Frontend design + core AI (full-stack) · teammates: presentation</span></div>
         <div><small>PERIOD</small><span>2026.09</span></div>
         <div><small>STACK</small><span>FastAPI · LangChain · Chroma · React 19 · OAuth</span></div>
       </div>
@@ -47,7 +47,7 @@
     <section class="case-content">
       <div class="case-lead"><span class="label">Core question</span><blockquote>"그거 어디서 봤더라"를 도구 다섯 개가 아니라 검색창 하나로 끝낼 수 있는가?</blockquote></div>
 
-      <section class="case-section"><span class="label">Context</span><div><h2>핵심이 동작하지 않는데, 기능만 늘고 있었습니다.</h2><p>OJT(참여자 200명 중 20명 선발)에서 3인 팀으로 사내 통합 AI 어시스턴트를 만들었습니다. 핵심인 AI 검색부터 완성하자고 제안했고 구현됐다는 답을 들었지만, 직접 테스트해 보니 검색 결과가 제대로 나오지 않았습니다. 맡은 프론트엔드 디자인은 계속하면서 팀원·현업 멘토·PM에게 양해를 구하고 핵심 기능을 따로 구현하기로 했습니다.</p></div></section>
+      <section class="case-section"><span class="label">Context</span><div><h2>핵심이 동작하지 않는데, 기능만 늘고 있었습니다.</h2><p>OJT(참여자 200명 중 20명 선발)에서 3인 팀으로 사내 통합 AI 어시스턴트를 만들었습니다. 핵심인 AI 검색부터 완성하자고 제안했고 구현됐다는 답을 들었지만, 직접 테스트해 보니 검색 결과가 제대로 나오지 않았습니다. 맡은 프론트엔드 디자인은 계속하면서 팀원·현업 멘토·PM에게 양해를 구하고 핵심 기능을 따로 구현하기로 했습니다. 구현하는 동안 팀에 중간마다 공유해 피드백을 받았고, 팀원은 발표 자료를 맡았습니다.</p></div></section>
 
       <section class="case-section"><span class="label">My role</span><div><h2>3일 동안 핵심 검색부터 풀스택으로 만들었습니다.</h2><ul><li>주제의 중심인 <strong>RAG 기반 자연어 통합 검색</strong>을 먼저 완성하고, 요약·의사결정 흐름·할 일 추출을 그 위에 얹는 순서로 진행</li><li>5개 소스 커넥터와 오프라인 적재 파이프라인, FastAPI 백엔드, React 화면</li><li>소스별 사용자 OAuth 연결과 권한 필터링, 사내망 LLM 전환</li></ul></div></section>
 
@@ -55,7 +55,7 @@
 
       <section class="case-section"><span class="label">Decision</span><div><h2>모델보다 문서와 권한이 품질을 갈랐습니다.</h2><h3>형식별 파싱</h3><p>PDF·Word·Excel·PowerPoint·한글(HWPX)은 구조가 제각각이라 검색에서 빠지는 문서가 생겼습니다. 형식마다 내용을 꺼내는 처리를 따로 두고, 코드·빌드 산출물은 노이즈로 제외했습니다.</p><h3>권한 필터링</h3><p>통합 검색은 접근 권한이 없는 문서를 보여 줄 위험이 있습니다. 다섯 소스 모두 사용자 계정을 OAuth로 연결해, 그 사람이 열 수 있는 문서만 검색되게 했습니다.</p><h3>사내망 LLM 전환</h3><p>사내 문서를 외부 LLM으로 보낼 수 없는 환경을 위해 설정 하나(<code>LLM_BACKEND</code>)로 OpenAI와 사내망 Ollama를 전환하게 했습니다.</p><h3>검색 구제 단계</h3><p>제목이 정확히 일치하는 문서가 벡터 후보에도 못 드는 문제가 있어 제목 일치 문서를 구제하는 단계를 넣고 관련도 임계값을 다시 맞췄습니다.</p></div></section>
 
-      <section class="case-section"><span class="label">Evidence</span><div><h2>결과물로 판단받았습니다.</h2><div class="case-metrics"><div class="case-metric"><strong>3일</strong><small>핵심 검색 기능 1인 구현</small></div><div class="case-metric"><strong>ADOPTED</strong><small>팀원·현업 멘토·PM 전원 동의로 팀 최종 결과물 채택</small></div><div class="case-metric"><strong>5</strong><small>연결한 소스 (Notion·Slack·Drive·GitHub·GitLab)</small></div><div class="case-metric"><strong>5</strong><small>파싱하는 문서 형식 (PDF·DOCX·XLSX·PPTX·HWPX)</small></div></div><div class="case-note"><strong>측정하지 않은 것.</strong> 검색 정확도를 정량으로 재지는 않았습니다. 판단 근거는 피드백 시간의 시연과 현업 멘토·PM의 평가입니다. 저장소 첫 커밋(9.18)에 코드가 한 번에 올라가 있어 3일 동안의 순서는 깃 기록으로는 보이지 않습니다.</div></div></section>
+      <section class="case-section"><span class="label">Evidence</span><div><h2>결과물로 판단받았습니다.</h2><div class="case-metrics"><div class="case-metric"><strong>3일</strong><small>핵심 검색 기능 구현 (팀원은 발표 자료 담당)</small></div><div class="case-metric"><strong>ADOPTED</strong><small>팀원·현업 멘토·PM 전원 동의로 팀 최종 결과물 채택</small></div><div class="case-metric"><strong>5</strong><small>연결한 소스 (Notion·Slack·Drive·GitHub·GitLab)</small></div><div class="case-metric"><strong>5</strong><small>파싱하는 문서 형식 (PDF·DOCX·XLSX·PPTX·HWPX)</small></div></div><div class="case-note"><strong>측정하지 않은 것.</strong> 검색 정확도를 정량으로 재지는 않았습니다. 판단 근거는 피드백 시간의 시연과 현업 멘토·PM의 평가입니다. 저장소 첫 커밋(9.18)에 코드가 한 번에 올라가 있어 3일 동안의 순서는 깃 기록으로는 보이지 않습니다.</div></div></section>
 
       <section class="case-section"><span class="label">Troubleshooting</span><div><h2>고친 기능이 만든 두 번째 문제까지 찾았습니다.</h2><h3>검색 구제 단계가 만든 동점</h3><p><strong>증상</strong> 정답인 Slack 문서가 검색 상위 4개에서 밀렸습니다. <strong>원인</strong> 제목이 일치하는 문서를 살리는 구제 단계가 구제된 문서에 모두 같은 점수(0.37)를 주었고, 앱 코드 저장소도 색인 대상이라 그 키워드를 언급한 코드·문서 파일이 동점자가 되어 실제 유사도 0.292인 정답을 밀어냈습니다. <strong>해결</strong> 구제 관련도를 임계값을 겨우 넘기는 최소값(0.27)으로 낮춰 진짜 벡터 유사도가 있는 문서가 항상 앞서게 했습니다.</p><h3>소셜 로그인의 도메인 제한 우회</h3><p><strong>증상</strong> 도메인 제한을 켜도 개인 Gmail·카카오 계정으로 로그인하면 들어와졌습니다. <strong>원인</strong> 도메인 검사가 이메일·비밀번호 가입에만 연결돼 있었습니다. <strong>해결</strong> Google은 신규 계정 생성 시 도메인을 비교하고(기존 계정 재로그인은 유지), 카카오는 이메일 동의가 없으면 거부했습니다. 격리 테스트 6개 시나리오로 확인했습니다.</p></div></section>
 
