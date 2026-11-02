@@ -39,7 +39,7 @@
       status: 'GATED BY DIFF SHA',
       number: '01 / 05',
       question: 'AI 에이전트가 쓴 코드를, 사람이 승인하지 않으면 반영되지 않게 만들 수 있는가?',
-      evidence: 'MCP 8 tools · gated by diff SHA · 660 tests · 4/4 agent runs',
+      evidence: 'MCP 8 tools · gated by diff SHA · 734 tests · 4/4 agent runs',
       title: 'DEVORCH',
       label: 'REVIEW / APPROVE',
       scene: 'algo'
